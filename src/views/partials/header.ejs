@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header-container">
+    <h1 class="nav-title"><a href="/">Shop</a></h1>
+    <div class="nav-img-container">
+      <div class="nav-icon"><i class="bx bxs-down-arrow"></i></div>
+      <div class="nav-img-box">
+        <a href="/userInfo"><img class="nav-img" src="/profileImgs/<%= userInfo.image %>" alt="profile img" /></a>
+      </div>
+    </div>
+  </div>
+
+  <ul class="nav-list">
+    <% if (userAdmin) {%>
+    <li class="nav-list-item"><a href="/admin">Administracion</a></li>
+    <%} %>
+    <li class="nav-list-item"><a href="/">Inicio</a></li>
+    <li class="nav-list-item"><a href="/cart">Carrito</a></li>
+    <li class="nav-list-item"><a href="/userInfo">Informacion del perfil</a></li>
+    <li class="nav-list-item"><a href="/logout">Cerrar sesion</a></li>
+  </ul>
+</header>

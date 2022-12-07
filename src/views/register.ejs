@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/inputMail.js" type="module" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Register</h1>
+
+      <form class="form" action="/register" method="POST" enctype="multipart/form-data">
+        <div class="form-container">
+          <div class="form-box">
+            <input required class="form-input" type="text" id="username" name="username" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label" for="username">Nombre:</label>
+          </div>
+
+          <div class="form-box">
+            <input required class="form-input" type="password" id="password" name="password" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label" for="password">Contraseña:</label>
+          </div>
+
+          <div class="form-box">
+            <input required class="form-input" type="email" id="email" name="email" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label email-label" for="email">Email:</label>
+          </div>
+
+          <div class="form-box">
+            <input required class="form-input" type="text" id="direction" name="direction" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label" for="direction">Direccion:</label>
+          </div>
+
+          <div class="form-box">
+            <input required class="form-input" type="text" id="age" name="age" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label" for="age">Edad:</label>
+          </div>
+
+          <div class="form-box">
+            <input required class="form-input" type="text" id="phone" name="phone" />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="form-label-top" for="phone">Telefono:</label>
+          </div>
+
+          <div class="form-box">
+            <label class="form-label-top" for="phone">Imagen de perfil:</label>
+            <input required class="form-input" type="file" id="image" name="image" />
+          </div>
+        </div>
+
+        <input class="form-btn" type="submit" value="Entrar" />
+      </form>
+
+      <span class="header-span">Ya tenes una cuenta? Ingresa aca: <a class="header-span-link" href="/login">LOGIN</a> </span>
+    </header>
+  </body>
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  </script>
+</html>

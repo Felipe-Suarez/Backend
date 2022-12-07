@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="js/cart.js" type="module" defer></script>
+    <script src="js/menu.js" type="module" defer></script>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+    <main>
+      <h2 class="main-title">Tus productos</h2>
+      <div class="product-container">
+        <% if (cartInfo.length === 0) { %>
+        <h2>No hay productos en tu carrito</h2>
+        <% } %> <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
+        <div class="product" name="<%=product.id%>">
+          <div class="product-img">
+            <img src="<%=product.thumbnail%>" />
+          </div>
+          <div class="product-box">
+            <p class="product-box-title"><%=product.title%></p>
+            <span class="product-box-price"><%=product.price%></span>
+          </div>
+          <button class="product-btn">Eliminar del carrito</button>
+        </div>
+        <% }); %>
+        <form action="/cart/buy" method="get">
+          <input type="submit" value="Comprar" />
+        </form>
+        <% } %>
+      </div>
+    </main>
+  </body>
+</html>

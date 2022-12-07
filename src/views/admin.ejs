@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="js/admin.js" type="module" defer></script>
+    <script src="js/menu.js" type="module" defer></script>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+    <main>
+      <h2 class="main-title">Administración</h2>
+      <form class="form" action="/api/products" method="POST">
+        <div class="form-container">
+          <div class="form-box">
+            <input required class="form-box-input" type="text" name="title" />
+            <label class="form-box-label">Titulo:</label>
+            <i class="form-box-i"></i>
+          </div>
+          <div class="form-box">
+            <input required class="form-box-input" min="0" type="number" name="price" />
+            <label class="form-box-label">Precio:</label>
+            <i class="form-box-i"></i>
+          </div>
+          <div class="form-box">
+            <input required class="form-box-input" type="text" name="thumbnail" />
+            <label class="form-box-label">Imagen(url):</label>
+            <i class="form-box-i"></i>
+          </div>
+        </div>
+        <div class="form-btn-box"><input class="form-btn" type="submit" value="Agregar" /><i class="form-btn-i"></i></div>
+      </form>
+      <div class="product-container">
+        <% if (productsInfo.length === 0) { %>
+        <H3>No hay productos disponibles</H3>
+        <% } %> <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
+        <div class="product" name="<%= product.id %>">
+          <div class="product-img">
+            <img src="<%= product.thumbnail %>" />
+          </div>
+          <div class="product-box">
+            <div class="product-box-position">
+              <input class="product-box-title" value="<%= product.title %>" />
+              <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
+              <div class="product-edit-box">
+                <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
+                <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
+              </div>
+            </div>
+            <div class="product-box-position product-box-icon">
+              <input class="product-box-price" value="<%= product.price %>" type="number" />
+              <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
+              <div class="product-edit-box">
+                <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
+                <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
+              </div>
+            </div>
+          </div>
+          <button class="product-btn"><i class="bx bx-trash-alt bx-sm product-delete-icon"></i> Eliminar producto</button>
+        </div>
+        <% }); %> <% } %>
+      </div>
+    </main>
+  </body>
+</html>

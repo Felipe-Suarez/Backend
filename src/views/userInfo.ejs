@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Info</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/userInfo.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="js/menu.js" type="module" defer></script>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+    <main>
+      <h2 class="main-title">Tu perfil</h2>
+      <div class="card">
+        <div class="card-img-box">
+          <img class="card-img" src="/profileImgs/<%= userInfo.image %>" alt="profile img" />
+        </div>
+        <ul>
+          <li class="card-item">Nombre: <%= userInfo.username %></li>
+          <li class="card-item">Email: <%= userInfo.email %></li>
+          <li class="card-item">Telefono: <%= userInfo.phone %></li>
+          <li class="card-item">Edad: <%= userInfo.age %></li>
+          <li class="card-item">Dirección: <%= userInfo.direction %></li>
+          <li class="card-item">ID del carrito actual: <%= cartId %></li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
