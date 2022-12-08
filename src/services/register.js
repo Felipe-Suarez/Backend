@@ -7,7 +7,6 @@ import { sendMail } from '../../utils/nodemailer.js'
 import logger from '../../utils/logger.js'
 
 import fs from 'fs'
-import path from 'path'
 
 const serviceRegister = async (req, res) => {
     const { username, password, email, direction, age, phone } = req.body;
@@ -16,8 +15,7 @@ const serviceRegister = async (req, res) => {
 
         if (err) logger.error(err);
         if (user) {
-            fs.unlink(path.join('..', '..', 'public', 'profilesImgs', req.file.filename), () => console.log('Eliminado'))
-            // fs.unlink(`../../public/profileImgs/${req.file.filename}`)
+            fs.unlink(`public/profileImgs/${req.file.filename}`, err => console.log(err))
             res.render("registerError")
         };
 
