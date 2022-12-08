@@ -34,8 +34,6 @@ route.get('/buy', auth, async (req, res) => {
     await sendMsg(userData.phone)
 
     await deleteCart
-
-    res.redirect('/')
 })
 
 export default route

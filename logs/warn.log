@@ -1,1 +1,4 @@
 [2022-12-07T14:23:01.478Z](Level: [31merror[39m) Parameter "filter" to findOne() must be an object, got felipe@mail
+[2022-12-08T21:55:45.422Z](Level: [31merror[39m) TWILIO_NUMBER is not defined
+[2022-12-08T21:58:46.044Z](Level: [31merror[39m) TWILIO_NUMBER is not defined
+[2022-12-08T22:07:29.448Z](Level: [31merror[39m) Unexpected token o in JSON at position 1

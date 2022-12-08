@@ -1,0 +1,29 @@
+.cart-buy {
+  display: block;
+  width: 150px;
+  margin: 0 auto 20px;
+}
+
+.cart-buy {
+  --bg: #000;
+  --hover-bg: #5264ae;
+  --hover-text: #fff;
+  color: #fff;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+}
+
+.cart-buy:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.cart-buy:active {
+  transform: translate(0);
+  box-shadow: none;
+}

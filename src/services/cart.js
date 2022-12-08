@@ -17,7 +17,6 @@ const serviceCartBuy = async (userId) => {
 
     const cart = carts.find(el => el.userId == userId)
 
-    console.log(cart)
     const deleteCart = await carritosDao.deleteAll()
 
     return { cart, userData, deleteCart }

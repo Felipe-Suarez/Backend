@@ -1,6 +1,6 @@
 import twilio from 'twilio'
 
-import { TWILIO_SID, TWILIO_TOKEN } from '../../config/index.js'
+import { TWILIO_SID, TWILIO_TOKEN, TWILIO_NUMBER } from '../../config/index.js'
 
 const accountSid = TWILIO_SID
 const authToken = TWILIO_TOKEN

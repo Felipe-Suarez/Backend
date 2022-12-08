@@ -15,7 +15,7 @@ const serviceRegister = async (req, res) => {
 
         if (err) logger.error(err);
         if (user) {
-            fs.unlink(`public/profileImgs/${req.file.filename}`, err => console.log(err))
+            fs.unlink(`public/profileImgs/${req.file.filename}`, err => logger.error(err))
             res.render("registerError")
         };
 
