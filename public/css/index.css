@@ -129,6 +129,10 @@
   text-align: center;
 }
 
+.main {
+  min-height: 65vh;
+}
+
 /* PRODUCTOS */
 
 .product-container {

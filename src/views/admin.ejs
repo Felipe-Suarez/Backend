@@ -18,59 +18,62 @@
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Administración</h2>
-      <form class="form" action="/api/products" method="POST">
-        <div class="form-container">
-          <div class="form-box">
-            <input required class="form-box-input" type="text" name="title" />
-            <label class="form-box-label">Titulo:</label>
-            <i class="form-box-i"></i>
+      <div class="main">
+        <form class="form" action="/api/products" method="POST">
+          <div class="form-container">
+            <div class="form-box">
+              <input required class="form-box-input" type="text" name="title" />
+              <label class="form-box-label">Titulo:</label>
+              <i class="form-box-i"></i>
+            </div>
+            <div class="form-box">
+              <input required class="form-box-input" min="0" type="number" name="price" />
+              <label class="form-box-label">Precio:</label>
+              <i class="form-box-i"></i>
+            </div>
+            <div class="form-box">
+              <input required class="form-box-input" type="text" name="thumbnail" />
+              <label class="form-box-label">Imagen(url):</label>
+              <i class="form-box-i"></i>
+            </div>
           </div>
-          <div class="form-box">
-            <input required class="form-box-input" min="0" type="number" name="price" />
-            <label class="form-box-label">Precio:</label>
-            <i class="form-box-i"></i>
+          <div class="form-btn-box">
+            <input class="form-btn" type="submit" value="Agregar" /><i class="form-btn-i"></i>
           </div>
-          <div class="form-box">
-            <input required class="form-box-input" type="text" name="thumbnail" />
-            <label class="form-box-label">Imagen(url):</label>
-            <i class="form-box-i"></i>
-          </div>
-        </div>
-        <div class="form-btn-box">
-          <input class="form-btn" type="submit" value="Agregar" /><i class="form-btn-i"></i>
-        </div>
-      </form>
-      <div class="product-container">
+        </form>
         <% if (productsInfo.length === 0) { %>
-        <H3>No hay productos disponibles</H3>
-        <% } %> <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
-        <div class="product" name="<%= product.id %>">
-          <div class="product-img">
-            <img src="<%= product.thumbnail %>" />
-          </div>
-          <div class="product-box">
-            <div class="product-box-position">
-              <input class="product-box-title" value="<%= product.title %>" />
-              <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
-              <div class="product-edit-box">
-                <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
-                <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
+        <h2 class="main-title">No hay productos disponibles</h2>
+        <% } %>
+        <div class="product-container">
+          <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
+          <div class="product" name="<%= product.id %>">
+            <div class="product-img">
+              <img src="<%= product.thumbnail %>" />
+            </div>
+            <div class="product-box">
+              <div class="product-box-position">
+                <input class="product-box-title" value="<%= product.title %>" />
+                <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
+                <div class="product-edit-box">
+                  <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
+                  <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
+                </div>
+              </div>
+              <div class="product-box-position product-box-icon">
+                <input class="product-box-price" value="<%= product.price %>" type="number" />
+                <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
+                <div class="product-edit-box">
+                  <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
+                  <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
+                </div>
               </div>
             </div>
-            <div class="product-box-position product-box-icon">
-              <input class="product-box-price" value="<%= product.price %>" type="number" />
-              <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
-              <div class="product-edit-box">
-                <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>
-                <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
-              </div>
-            </div>
+            <button class="product-btn">
+              <i class="bx bx-trash-alt bx-sm product-delete-icon"></i> Eliminar producto
+            </button>
           </div>
-          <button class="product-btn">
-            <i class="bx bx-trash-alt bx-sm product-delete-icon"></i> Eliminar producto
-          </button>
+          <% }); %> <% } %>
         </div>
-        <% }); %> <% } %>
       </div>
     </main>
     <%- include('partials/footer.ejs'); %>

@@ -15,23 +15,26 @@
   </head>
   <body>
     <%- include('partials/header.ejs'); %>
-    <main class="main">
+    <main>
       <h2 class="main-title">Bienvenido <%= userInfo.username %></h2>
-      <div class="product-container">
+      <div class="main">
         <% if (productsInfo.length === 0) { %>
-        <H3>No hay productos disponibles</H3>
-        <% } %> <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
-        <div class="product" name="<%= product.id %>">
-          <div class="product-img">
-            <img src="<%= product.thumbnail %>" />
+        <h2 class="main-title">No hay productos disponibles</h2>
+        <% } %>
+        <div class="product-container">
+          <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
+          <div class="product" name="<%= product.id %>">
+            <div class="product-img">
+              <img src="<%= product.thumbnail %>" />
+            </div>
+            <div class="product-box">
+              <p class="product-box-title"><%= product.title %></p>
+              <span class="product-box-price">$ <%= product.price %></span>
+            </div>
+            <button class="product-btn">Agregar al carrito</button>
           </div>
-          <div class="product-box">
-            <p class="product-box-title"><%= product.title %></p>
-            <span class="product-box-price">$ <%= product.price %></span>
-          </div>
-          <button class="product-btn">Agregar al carrito</button>
+          <% }); %> <% } %>
         </div>
-        <% }); %> <% } %>
       </div>
     </main>
     <%- include('partials/footer.ejs'); %>
