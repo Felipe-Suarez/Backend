@@ -1,0 +1,9 @@
+@media screen and (min-width: 1000px) {
+  .product-container {
+    margin: 0 auto;
+    display: grid;
+    width: 1000px;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+}

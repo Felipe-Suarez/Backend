@@ -5,7 +5,7 @@
 
 .header-title {
   text-align: center;
-  margin: 0;
+  margin: 20px 0;
 }
 
 .form {
@@ -161,5 +161,21 @@
 /* SPAN */
 
 .header-span {
+  display: block;
+  text-align: center;
   padding: 20px 0 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .form {
+    width: 70vw;
+    margin: 0 15vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .form {
+    width: 50vw;
+    margin: 0 25vw;
+  }
 }

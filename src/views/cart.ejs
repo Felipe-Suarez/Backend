@@ -24,25 +24,29 @@
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Tu carrito</h2>
-      <div class="product-container">
+      <div class="main-cart">
         <% if (cartInfo.length === 0) { %>
         <h2 class="main-title">No hay productos en tu carrito</h2>
-        <% } %> <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
-        <div class="product" name="<%=product.id%>">
-          <div class="product-img">
-            <img src="<%=product.thumbnail%>" />
+        <% } %>
+        <div class="product-container">
+          <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
+          <div class="product" name="<%=product.id%>">
+            <div class="product-img">
+              <img src="<%=product.thumbnail%>" />
+            </div>
+            <div class="product-box">
+              <p class="product-box-title"><%=product.title%></p>
+              <span class="product-box-price">$ <%=product.price%></span>
+            </div>
+            <button class="product-btn">Eliminar del carrito</button>
           </div>
-          <div class="product-box">
-            <p class="product-box-title"><%=product.title%></p>
-            <span class="product-box-price">$ <%=product.price%></span>
-          </div>
-          <button class="product-btn">Eliminar del carrito</button>
+          <% }); %> <% } %>
         </div>
-        <% }); %> <% } %>
+        <% if (cartInfo.length > 0) { %>
+        <button class="cart-buy">Comprar</button>
+        <% } %>
       </div>
-      <% if (cartInfo.length > 0) { %>
-      <button class="cart-buy">Comprar</button>
-      <% } %>
     </main>
+    <%- include('partials/footer.ejs'); %>
   </body>
 </html>
