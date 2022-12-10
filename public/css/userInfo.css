@@ -54,10 +54,50 @@
   z-index: 1;
   width: 150px;
   height: 150px;
+  background-color: #fafafa;
+  box-shadow: inset 0 0 10px #000a;
+  position: relative;
+}
+
+.card-img-box:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000a;
+  pointer-events: none;
 }
 
 .card-img {
   width: 150px;
   height: 150px;
   object-fit: cover;
+}
+
+.edit-img {
+  display: none;
+  color: #5264ae;
+  position: absolute;
+  top: 30px;
+  left: 25px;
+  z-index: 1000;
+  padding: 30px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.card-img-box:hover .edit-img {
+  display: block;
+}
+
+.card-img-label {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+}
+
+.card-img-box-form {
+  display: none;
 }

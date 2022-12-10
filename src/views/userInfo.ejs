@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/userInfo.css" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="js/menu.js" type="module" defer></script>
+    <script src="js/userInfo.js" type="module" defer></script>
   </head>
   <body>
     <%- include('partials/header.ejs'); %>
@@ -19,6 +20,17 @@
       <div class="card">
         <div class="card-img-box">
           <img class="card-img" src="/profileImgs/<%= userInfo.image %>" alt="profile img" />
+          <label for="editImg" class="card-img-label">
+            <i class="bx bxs-edit-alt bx-md edit-img"></i>
+          </label>
+          <form
+            class="card-img-box-form"
+            action="/userInfo/editImg"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input id="editImg" type="file" name="newImage" />
+          </form>
         </div>
         <ul>
           <li class="card-item">Nombre: <%= userInfo.username %></li>
