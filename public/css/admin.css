@@ -170,10 +170,9 @@
 }
 
 .product-box {
-  flex-direction: column;
-  justify-content: left;
-  margin-bottom: 10px;
   pointer-events: none;
+  height: unset;
+  margin-left: 10px;
 }
 
 .product-box-position {
@@ -182,13 +181,13 @@
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  width: 80%;
+  width: 100%;
   cursor: pointer;
 }
 
 .product-edit-btn {
   position: absolute;
-  right: 0;
+  right: 25px;
   pointer-events: all;
 }
 
@@ -203,6 +202,7 @@
   border: none;
   margin: 10px 0;
   padding: 5px;
+  width: 70%;
   pointer-events: all;
 }
 
@@ -213,7 +213,7 @@
 
 .product-edit-box {
   position: absolute;
-  right: -20px;
+  right: 10px;
   display: none;
 }
 

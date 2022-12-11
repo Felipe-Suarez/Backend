@@ -22,7 +22,7 @@ productContainer.addEventListener('click', async (e) => {
 // CART BUY
 const cartBuy = document.querySelector('.cart-buy')
 
-cartBuy.addEventListener('click', () => {
+cartBuy?.addEventListener('click', () => {
     fetch('/cart/buy')
         .then(alert('Compra realizada exitosamente!'))
         .then(window.location.href = "/")
