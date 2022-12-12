@@ -1,11 +1,6 @@
-import mongoose from 'mongoose'
-
-import { URL_MONGO, OPTIONS_MONGO } from '../../../config/index.js';
-
 import { asPojo, renameField } from "../../../utils/objetsUtils.js";
 
-mongoose.connect(URL_MONGO, OPTIONS_MONGO);
-
+import '../../../config/connect.js'
 class ContenedorMongoDb {
 
     constructor(model) {

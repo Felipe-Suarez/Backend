@@ -9,15 +9,20 @@ import cookieParser from 'cookie-parser';
 
 import compression from 'compression'
 
+import { Server as HttpServer } from 'http'
+import { Server as IOServer } from 'socket.io'
+
+import { chatUtils } from './utils/chatUtils.js'
+
 import logger from './utils/logger.js'
 
 import { URL_MONGO, SECRET, PERS } from './config/index.js'
 
 import { useDB } from './src/persistence/daos/index.js';
 
-import cluster from 'cluster'
-import CPUs from 'os'
-const numCPUs = CPUs.cpus().length
+// import cluster from 'cluster'
+// import CPUs from 'os'
+// const numCPUs = CPUs.cpus().length
 
 //clusters
 // if (cluster.isPrimary) {
@@ -32,8 +37,13 @@ const numCPUs = CPUs.cpus().length
 //     });
 
 // } else {
+
 //init
 const app = express();
+
+// SOCKET
+const httpServer = new HttpServer(app)
+const io = new IOServer(httpServer)
 
 //compression gzip
 app.use(compression({ filter: shouldCompress }))
@@ -81,10 +91,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', router)
 
+//SOCKET
+
+io.on('connection', async function (socket) {
+    logger.info('Usuario conectado');
+
+    const messages = await chatUtils.list();
+    socket.emit('messages', messages)
+
+    socket.on('new-message', async function (data) {
+        try {
+            chatUtils.save(data)
+            const messages = await chatUtils.list()
+            io.sockets.emit('messages', messages)
+        } catch (err) {
+            logger.error(err)
+        }
+    })
+    socket.on('disconnect', () => {
+        logger.info('Usuario desconectado');
+    });
+})
+
 //port
 const PORT = process.env.PORT || 8080;
 
 //listen
-const server = app.listen(PORT, () => logger.info(`Escuchando al puerto ${PORT}. Utilizando ${useDB}`))
-server.on('error', (err) => logger.error(err))
+httpServer.listen(PORT, () => logger.info(`Escuchando al puerto ${PORT}. Utilizando ${useDB}`))
+httpServer.on('error', (err) => logger.error(err))
 // }

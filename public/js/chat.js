@@ -19,3 +19,63 @@ closeBtn.addEventListener('click', () => {
         openBtn.style = 'transform: translateY(0)'
     }, 200)
 })
+
+//SCROLL BOTTOM
+
+const chat = document.querySelector('.chat')
+chat.scrollTop = chat.scrollHeight
+
+// SOCKET
+
+const socket = io.connect();
+
+function renderChat(data) {
+    let chatHTML = `<div class='chat-info-msg'>
+                      <span>El chat se encuentra vacio en este momento<span/>
+                  <div/>`;
+    if (data.length > 0) {
+        chatHTML = data
+            .map((elem, index) => {
+                return `<div class='msg-container'>
+                <strong class='msg-author'>${elem.author}:</strong>
+                <p class='msg-text'>${elem.text}</p> 
+                <span class="msg-date">[${elem.date}]<span>
+            </div>`;
+            })
+            .join(" ");
+    }
+    document.getElementById("messages").innerHTML = chatHTML;
+    const chat = document.querySelector(".chat");
+    chat.scrollTop = chat.scrollHeight;
+}
+
+socket.on("messages", function (data) {
+    renderChat(data);
+});
+
+const getName = async () => {
+    let name;
+    await fetch("/userInfo/name")
+        .then((res) => res.json())
+        .then((data) => (name = data));
+    return name;
+};
+
+const chatForm = document.querySelector(".chat-input-box");
+chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addMessage();
+});
+
+async function addMessage() {
+    const newMsg = {
+        author: await getName(),
+        date: `${new Date().toLocaleDateString()} - (${new Date().toLocaleTimeString()})`,
+        text: document.getElementById("userMsg").value,
+    };
+    socket.emit("new-message", newMsg);
+
+    document.getElementById("userMsg").value = ''
+
+    return false;
+}

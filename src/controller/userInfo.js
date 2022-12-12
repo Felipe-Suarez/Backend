@@ -12,8 +12,6 @@ route.get('/', auth, async (req, res) => {
 
     const veifyAdmin = await isAdmin(req)
 
-    // console.log(req.user.image)
-
     res.render('userInfo', {
         userInfo: userData,
         cartId: myCart.id,
@@ -21,9 +19,12 @@ route.get('/', auth, async (req, res) => {
     })
 })
 
+route.get('/name', auth, async (req, res) => {
+    res.json(req.user.username)
+})
+
 route.get('/data', auth, async (req, res) => {
     const { myCart } = await serviceUser(req.user?._id)
-
     res.send(myCart)
 })
 

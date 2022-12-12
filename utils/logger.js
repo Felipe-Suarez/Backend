@@ -3,8 +3,7 @@ import winston from 'winston';
 const logger = winston.createLogger({
     format: winston.format.combine(winston.format.simple(),
         winston.format.colorize(),
-        winston.format.timestamp(),
-        winston.format.printf(info => `[${info.timestamp}](Level: ${info.level}) ${info.message}`)
+        winston.format.printf(info => `[${(new Date).toLocaleDateString()} - (${(new Date).toLocaleTimeString()})]/(Level: ${info.level}): ${info.message}`)
     ),
     transports: [
         new winston.transports.File({ filename: "./logs/warn.log", level: "warn" }),
