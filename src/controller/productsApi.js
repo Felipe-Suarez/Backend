@@ -19,7 +19,6 @@ route.get('/:id', async (req, res) => {
 
 route.post('/', async (req, res) => {
     const bodyProduct = req.body
-    console.log(bodyProduct)
     await serviceProductSave(bodyProduct)
 
     res.redirect('/admin')

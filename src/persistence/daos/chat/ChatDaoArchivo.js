@@ -2,7 +2,7 @@ import ContenedorArchivo from "../../contenedores/ContenedorArchivo.js";
 
 class ChatDaoArchivo extends ContenedorArchivo {
     constructor() {
-        super('chat.json')
+        super('chat')
     }
 
     async save(msg) {

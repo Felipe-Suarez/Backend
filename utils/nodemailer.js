@@ -32,9 +32,9 @@ const sendMail = async (data) => {
     };
 
     try {
-        const info = await transporter.sendMail(emailContent);
+        await transporter.sendMail(emailContent);
     } catch (error) {
-        logger.error('erro de nodemailer', error);
+        logger.error('error de nodemailer', error);
     }
 
 }
@@ -63,9 +63,9 @@ const newPurchase = async (data) => {
     };
 
     try {
-        const info = await transporter.sendMail(emailContent);
+        await transporter.sendMail(emailContent);
     } catch (error) {
-        logger.error('erro de nodemailer', error);
+        logger.error('error de nodemailer', error);
     }
 
 }

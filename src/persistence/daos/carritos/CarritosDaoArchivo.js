@@ -2,11 +2,14 @@ import ContenedorArchivo from "../../contenedores/ContenedorArchivo.js";
 
 class CarritosDaoArchivo extends ContenedorArchivo {
     constructor() {
-        super('carritos.json')
+        super('carritos')
     }
 
-    async save(carrito = { productos: [] }) {
-        return super.save(carrito)
+    async save(userId) {
+        const newUserId = userId = JSON.parse(JSON.stringify(userId))
+        let obj = { userId: newUserId, productos: [] }
+        const data = await super.save(obj)
+        return data
     }
 }
 

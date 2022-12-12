@@ -2,13 +2,13 @@ import fs from 'fs'
 
 class ContenedorArchivo {
     constructor(archive) {
-        this.archive = `DB/${archive}`;
+        this.archive = `DB/${archive}.json`;
     }
 
     async getById(id) {
         const objs = await this.list()
-        const buscado = objs.find(item => item.id === id)
-        return buscado
+        const obj = await objs.find(item => item.id === parseInt(id))
+        return obj
     }
 
     async list() {
