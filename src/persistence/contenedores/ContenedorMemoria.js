@@ -3,7 +3,7 @@ class ContenedorMemoria {
         this.memoria = []
     }
 
-    listar(id) {
+    getById(id) {
         const obj = this.memoria.find(item => item.id == id)
         if (!obj) {
             throw new Error('Error')
@@ -12,11 +12,11 @@ class ContenedorMemoria {
         }
     }
 
-    listarAll() {
+    list() {
         return [...this.memoria]
     }
 
-    guardar(obj) {
+    save(obj) {
 
         let newId;
         if (this.memoria.length == 0) {
@@ -31,7 +31,7 @@ class ContenedorMemoria {
 
     }
 
-    actualizar(obj) {
+    update(obj) {
         const index = this.memoria.findIndex(item => item.id == obj.id)
         if (index == -1) {
             throw new Error('Error')
@@ -41,7 +41,7 @@ class ContenedorMemoria {
         }
     }
 
-    borrar(id) {
+    delete(id) {
         const index = this.memoria.findIndex(item => item.id == id)
         if (index == -1) {
             throw new Error('Error')
@@ -50,7 +50,7 @@ class ContenedorMemoria {
         }
     }
 
-    borrarAll() {
+    deleteAll() {
         this.memoria = []
     }
 }

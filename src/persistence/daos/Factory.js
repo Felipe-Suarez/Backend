@@ -3,9 +3,12 @@ import CarritosDaoArchivo from './carritos/CarritosDaoArchivo.js';
 
 import ProductosDaoMongoDb from './productos/ProductosDaoMongoDb.js';
 import CarritosDaoMongoDb from './carritos/CarritosDaoMongoDb.js';
+import ChatDaoMongo from './chat/ChatDaoMongoDb.js';
 
 import ProductosDaoMem from './productos/ProductosDaoMem.js';
 import CarritosDaoMem from './carritos/CarritosDaoMem.js';
+import ChatDaoArchivo from './chat/ChatDaoArchivo.js';
+import ChatDaoMem from './chat/ChatDaoMem.js';
 
 class FactoryProduct {
 
@@ -34,5 +37,17 @@ class FactoryCart {
         }
     }
 }
+class FactoryChat {
+    create(pers) {
+        switch (pers) {
+            case 'json':
+                return new ChatDaoArchivo();
+            case 'mongoDb':
+                return new ChatDaoMongo();
+            case 'memoria':
+                return new ChatDaoMem();
+        }
+    }
+}
 
-export { FactoryCart, FactoryProduct }
+export { FactoryCart, FactoryProduct, FactoryChat }

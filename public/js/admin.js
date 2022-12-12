@@ -1,3 +1,4 @@
+// EDIT PRODUCTS
 const productBtn = document.querySelectorAll('.product-btn')
 const productContainer = document.querySelector('.product-container')
 const productBox = document.querySelectorAll('.product-box-position')
@@ -110,4 +111,17 @@ const editProduct = (e) => {
 productContainer.addEventListener('click', (e) => {
     deleteProduct(e)
     editProduct(e)
+})
+
+// CHAT
+const vaciarChat = document.getElementById('vaciarChat')
+
+let chatHTML = `<div class='chat-info-msg'>
+                      <span>El chat se encuentra vacio en este momento<span/>
+                  <div/>`;
+
+vaciarChat.addEventListener('click', async () => {
+    fetch('/api/chat', { method: 'delete' })
+        .then(alert('Chat vaciado correctamente'))
+        .then(document.getElementById("messages").innerHTML = chatHTML)
 })

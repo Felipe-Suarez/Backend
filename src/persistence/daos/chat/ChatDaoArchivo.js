@@ -1,6 +1,6 @@
 import ContenedorArchivo from "../../contenedores/ContenedorArchivo.js";
 
-class CarritosDaoArchivo extends ContenedorArchivo {
+class ChatDaoArchivo extends ContenedorArchivo {
     constructor() {
         super('carritos.json')
     }
@@ -10,4 +10,4 @@ class CarritosDaoArchivo extends ContenedorArchivo {
     }
 }
 
-export default CarritosDaoArchivo
+export default ChatDaoArchivo

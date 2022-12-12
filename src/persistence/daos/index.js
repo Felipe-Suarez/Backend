@@ -1,4 +1,4 @@
-import { SingletonCart, SingletonProduct } from "./Singleton.js";
+import { SingletonCart, SingletonProduct, SingletonChat } from "./Singleton.js";
 
 const optionsDB = ['json', 'mongoDb', 'memoria']
 
@@ -8,5 +8,6 @@ if (!optionsDB.includes(useDB)) useDB = 'mongoDb'
 
 const productosDao = SingletonProduct.singletonDao().create(useDB)
 const carritosDao = SingletonCart.singletonDao().create(useDB)
+const chatDao = SingletonChat.singletonDao().create(useDB)
 
-export { productosDao, carritosDao, useDB };
+export { productosDao, carritosDao, chatDao, useDB };

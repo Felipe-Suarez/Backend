@@ -12,7 +12,8 @@ import compression from 'compression'
 import { Server as HttpServer } from 'http'
 import { Server as IOServer } from 'socket.io'
 
-import { chatUtils } from './utils/chatUtils.js'
+// import { chatUtils } from './utils/chatUtils.js'
+import { chatDao } from './src/persistence/daos/index.js';
 
 import logger from './utils/logger.js'
 
@@ -96,13 +97,13 @@ app.use('/', router)
 io.on('connection', async function (socket) {
     logger.info('Usuario conectado');
 
-    const messages = await chatUtils.list();
+    const messages = await chatDao.list();
     socket.emit('messages', messages)
 
     socket.on('new-message', async function (data) {
         try {
-            chatUtils.save(data)
-            const messages = await chatUtils.list()
+            chatDao.save(data)
+            const messages = await chatDao.list()
             io.sockets.emit('messages', messages)
         } catch (err) {
             logger.error(err)

@@ -4,6 +4,7 @@ const router = express.Router();
 //router
 
 import productsApi from '../controller/productsApi.js'
+import chatApi from '../controller/chatApi.js'
 import cartApi from '../controller/cartApi.js'
 import error from '../controller/error.js'
 import home from '../controller/home.js'
@@ -18,6 +19,7 @@ import userInfo from '../controller/userInfo.js'
 
 //middlewares
 router.use("/api/products", productsApi);
+router.use("/api/chat", chatApi);
 router.use("/api/cart", cartApi);
 router.use('/', home)
 router.use('/login', login)

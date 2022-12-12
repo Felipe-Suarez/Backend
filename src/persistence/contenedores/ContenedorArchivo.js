@@ -5,13 +5,13 @@ class ContenedorArchivo {
         this.archive = `DB/${archive}`;
     }
 
-    async listar(id) {
-        const objs = await this.listarAll()
+    async getById(id) {
+        const objs = await this.list()
         const buscado = objs.find(item => item.id === id)
         return buscado
     }
 
-    async listarAll() {
+    async list() {
         try {
             const objs = await fs.promises.readFile(this.archive, 'utf-8')
             return JSON.parse(objs)
@@ -22,8 +22,8 @@ class ContenedorArchivo {
 
     }
 
-    async guardar(obj) {
-        const objs = await this.listarAll()
+    async save(obj) {
+        const objs = await this.list()
         let newId;
         if (objs.length == 0) {
             newId = 1
@@ -42,8 +42,8 @@ class ContenedorArchivo {
         }
     }
 
-    async actualizar(obj) {
-        const objs = await this.listarAll()
+    async update(obj) {
+        const objs = await this.list()
         const index = objs.findIndex(item => item.id == obj.id)
         if (index == -1) {
             throw new Error('Error, no se encontro el id')
@@ -57,8 +57,8 @@ class ContenedorArchivo {
         }
     }
 
-    async borrar(id) {
-        const objs = await this.listarAll()
+    async delete(id) {
+        const objs = await this.list()
         const index = objs.findIndex(item => item.id == id)
         if (index == -1) {
             throw new Error('Error, no se encontro el id')
@@ -71,7 +71,7 @@ class ContenedorArchivo {
         }
     }
 
-    async borrarAll() {
+    async deleteAll() {
         try {
             await fs.promises.writeFile(this.archive, JSON.stringify([], null, 2))
         } catch (error) {

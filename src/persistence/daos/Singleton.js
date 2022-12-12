@@ -1,7 +1,8 @@
-import { FactoryCart, FactoryProduct } from "./Factory.js"
+import { FactoryCart, FactoryProduct, FactoryChat } from "./Factory.js"
 
 let factoryProduct;
 let factoryCart;
+let factoryChat;
 
 class SingletonProduct {
     static singletonDao() {
@@ -21,4 +22,13 @@ class SingletonCart {
     }
 }
 
-export { SingletonCart, SingletonProduct }
+class SingletonChat {
+    static singletonDao() {
+        if (!factoryChat) {
+            factoryChat = new FactoryChat()
+        }
+        return factoryChat
+    }
+}
+
+export { SingletonCart, SingletonProduct, SingletonChat }

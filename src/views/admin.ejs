@@ -28,8 +28,10 @@
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Administración</h2>
+      <button id="vaciarChat">Vaciar Chat</button>
       <div class="main">
         <form class="form" action="/api/products" method="POST">
+          <h3 class="main-title">Agregar productos</h3>
           <div class="form-container">
             <div class="form-box">
               <input required class="form-box-input" type="text" name="title" />

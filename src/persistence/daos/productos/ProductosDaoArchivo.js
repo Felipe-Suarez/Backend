@@ -5,8 +5,8 @@ class ProductosDaoArchivo extends ContenedorArchivo {
         super('productos.json')
     }
 
-    async guardar(producto) {
-        return super.guardar(producto);
+    async save(producto) {
+        return super.save(producto);
     }
 }
 
