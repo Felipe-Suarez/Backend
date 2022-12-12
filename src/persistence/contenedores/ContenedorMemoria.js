@@ -1,3 +1,5 @@
+import { asPojo, renameField } from "../../../utils/objetsUtils.js";
+
 class ContenedorMemoria {
     constructor() {
         this.memoria = []
@@ -17,7 +19,6 @@ class ContenedorMemoria {
     }
 
     save(obj) {
-
         let newId;
         if (this.memoria.length == 0) {
             newId = 1

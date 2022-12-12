@@ -18,18 +18,20 @@ import cart from '../controller/cart.js'
 import userInfo from '../controller/userInfo.js'
 
 //middlewares
-router.use("/api/products", productsApi);
-router.use("/api/chat", chatApi);
-router.use("/api/cart", cartApi);
-router.use('/', home)
-router.use('/login', login)
-router.use('/loginError', loginError)
-router.use('/logout', logout)
-router.use('/register', register)
-router.use('/registerError', registerError)
-router.use('/admin', admin)
-router.use('/cart', cart)
-router.use('/userInfo', userInfo)
-router.use("*", error);
+router
+    .use("/api/products", productsApi)
+    .use("/api/chat", chatApi)
+    .use("/api/cart", cartApi)
+    .use('/', home)
+    .use('/login', login)
+    .use('/loginError', loginError)
+    .use('/logout', logout)
+    .use('/register', register)
+    .use('/registerError', registerError)
+    .use('/admin', admin)
+    .use('/cart', cart)
+    .use('/userInfo', userInfo)
+    .use("*", error);
+
 
 export default router

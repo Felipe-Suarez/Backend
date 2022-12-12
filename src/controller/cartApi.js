@@ -6,26 +6,28 @@ import { auth } from '../middleware/auth.js'
 
 import { serviceCreateCart, serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceDeleteCartProducts } from '../services/cartApi.js'
 
-route.post('/', auth, async (req, res) => {
+route.use(auth)
+
+route.post('/', async (req, res) => {
     const product = req.body;
     res.json(await serviceCreateCart(product))
 })
 
-route.delete('/:id', auth, async (req, res) => {
+route.delete('/:id', async (req, res) => {
     const id = req.params.id;
     res.json(await serviceDeleteCart(id))
 })
 
-route.get('/', auth, async (req, res) => {
+route.get('/', async (req, res) => {
     res.json(await serviceGetCarts())
 })
 
-route.get('/:id/productos', auth, async (req, res) => {
+route.get('/:id/productos', async (req, res) => {
     const id = req.params.id
     res.json(await serviceGetCartProducts(id))
 })
 
-route.post('/:id/productos', auth, async (req, res) => {
+route.post('/:id/productos', async (req, res) => {
     const productID = req.body.id;
     const cartID = req.params.id;
 
@@ -33,7 +35,7 @@ route.post('/:id/productos', auth, async (req, res) => {
     res.end()
 })
 
-route.delete('/:id/productos/:id_prod', auth, async (req, res) => {
+route.delete('/:id/productos/:id_prod', async (req, res) => {
     const id = req.params.id;
     const productID = req.params.id_prod;
 

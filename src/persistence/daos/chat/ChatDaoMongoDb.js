@@ -8,9 +8,11 @@ class ChatDaoMongo extends ContenedorMongoDb {
     }
 
     async save(msg) {
-        if (msg.text.includes('<img')) {
+        const msgText = msg.text.trim()
+        if (msgText.includes('<img') || msgText === '') {
             return false
         }
+        msg.text = msgText
         const data = await super.save(msg)
         return data
     }

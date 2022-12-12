@@ -9,7 +9,9 @@ import { newPurchase } from '../../utils/nodemailer.js'
 
 import { serviceCart, serviceCartBuy } from '../services/cart.js'
 
-route.get('/', auth, async (req, res) => {
+route.use(auth)
+
+route.get('/', async (req, res) => {
     const { cart, userData } = await serviceCart(req.user?._id)
 
     const veifyAdmin = await isAdmin(req)
@@ -21,7 +23,7 @@ route.get('/', auth, async (req, res) => {
     })
 })
 
-route.get('/buy', auth, async (req, res) => {
+route.get('/buy', async (req, res) => {
     const { cart, userData, deleteCart } = await serviceCartBuy(req.user?._id)
 
     const data = {
@@ -31,7 +33,7 @@ route.get('/buy', auth, async (req, res) => {
     }
 
     await newPurchase(data)
-    await sendMsg(userData.phone)
+    // await sendMsg(userData.phone)
 
     await deleteCart
 })

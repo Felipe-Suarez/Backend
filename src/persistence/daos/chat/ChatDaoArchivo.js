@@ -2,11 +2,17 @@ import ContenedorArchivo from "../../contenedores/ContenedorArchivo.js";
 
 class ChatDaoArchivo extends ContenedorArchivo {
     constructor() {
-        super('carritos.json')
+        super('chat.json')
     }
 
-    async save(carrito = { productos: [] }) {
-        return super.save(carrito)
+    async save(msg) {
+        const msgText = msg.text.trim()
+        if (msgText.includes('<img') || msgText === '') {
+            return false
+        }
+        msg.text = msgText
+        const data = await super.save(msg)
+        return data
     }
 }
 

@@ -7,7 +7,9 @@ import { serviceUser } from '../services/userInfo.js'
 
 import multerEdit from '../middleware/multerEdit.js'
 
-route.get('/', auth, async (req, res) => {
+route.use(auth)
+
+route.get('/', async (req, res) => {
     const { userData, myCart } = await serviceUser(req.user?._id)
 
     const veifyAdmin = await isAdmin(req)
@@ -19,11 +21,11 @@ route.get('/', auth, async (req, res) => {
     })
 })
 
-route.get('/name', auth, async (req, res) => {
+route.get('/name', async (req, res) => {
     res.json(req.user.username)
 })
 
-route.get('/data', auth, async (req, res) => {
+route.get('/data', async (req, res) => {
     const { myCart } = await serviceUser(req.user?._id)
     res.send(myCart)
 })

@@ -8,7 +8,7 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
     }
 
     async save(userId) {
-        let obj = { userId, products: [] }
+        let obj = { userId, productos: [] }
         const data = await super.save(obj)
         return data
     }
