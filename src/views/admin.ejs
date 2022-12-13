@@ -72,7 +72,12 @@
                 </div>
               </div>
               <div class="product-box-position product-box-icon">
-                <input class="product-box-price" value="<%= product.price %>" type="number" />
+                <input
+                  min="1"
+                  class="product-box-price"
+                  value="<%= product.price %>"
+                  type="number"
+                />
                 <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
                 <div class="product-edit-box">
                   <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>

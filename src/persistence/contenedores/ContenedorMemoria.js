@@ -1,5 +1,3 @@
-import { asPojo, renameField } from "../../../utils/objetsUtils.js";
-
 class ContenedorMemoria {
     constructor() {
         this.memoria = []
@@ -37,8 +35,15 @@ class ContenedorMemoria {
         if (index == -1) {
             throw new Error('Error')
         } else {
-            this.memoria[index] = obj
-            return obj
+            const oldObj = this.memoria[index]
+            const newObj = {
+                title: obj.title || oldObj.title,
+                price: obj.price || oldObj.price,
+                thumbnail: obj.thumbnail || oldObj.thumbnail,
+                id: parseInt(obj.id),
+            }
+            this.memoria.splice(index, 1, newObj)
+            return newObj
         }
     }
 

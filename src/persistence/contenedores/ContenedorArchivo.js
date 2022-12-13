@@ -43,14 +43,21 @@ class ContenedorArchivo {
     }
 
     async update(obj) {
-        const objs = await this.list()
-        const index = objs.findIndex(item => item.id == obj.id)
+        const productList = await this.list()
+        const index = productList.findIndex(item => item.id == obj.id)
         if (index == -1) {
             throw new Error('Error, no se encontro el id')
         } else {
-            objs[index] = obj
+            const oldObj = productList[index]
+            const newObj = {
+                title: obj.title || oldObj.title,
+                price: obj.price || oldObj.price,
+                thumbnail: obj.thumbnail || oldObj.thumbnail,
+                id: parseInt(obj.id),
+            }
+            productList.splice(index, 1, newObj)
             try {
-                await fs.promises.writeFile(this.archive, JSON.stringify(objs, null, 2))
+                await fs.promises.writeFile(this.archive, JSON.stringify(productList, null, 2))
             } catch {
                 throw new Error('Error')
             }

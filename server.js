@@ -12,7 +12,6 @@ import compression from 'compression'
 import { Server as HttpServer } from 'http'
 import { Server as IOServer } from 'socket.io'
 
-// import { chatUtils } from './utils/chatUtils.js'
 import { chatDao } from './src/persistence/daos/index.js';
 
 import logger from './utils/logger.js'
