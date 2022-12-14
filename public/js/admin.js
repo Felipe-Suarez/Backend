@@ -56,9 +56,14 @@ const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
                 body: JSON.stringify({
                     title: productInput.value
                 })
-            }).then(
-                alert(`Nombre del producto editado a: '${productInput.value}'`)
-            )
+            }).then(res => res.json()).then(data => {
+                if (data?.error) {
+                    alert(data.error)
+                    window.location.href = '/admin'
+                } else {
+                    alert(data)
+                }
+            })
         } else {
             fetch(`/api/products/${productId}`, {
                 method: 'PUT',
@@ -68,9 +73,14 @@ const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
                 body: JSON.stringify({
                     price: parseInt(productInput.value)
                 })
-            }).then(
-                alert(`Precio del producto editado a: $ ${productInput.value}`)
-            )
+            }).then(res => res.json()).then(data => {
+                if (data?.error) {
+                    alert(data.error)
+                    window.location.href = '/admin'
+                } else {
+                    alert(data)
+                }
+            })
         }
 
     }

@@ -1,9 +1,5 @@
 import { productosDao, carritosDao } from '../persistence/daos/index.js'
 
-const serviceCreateCart = async (product) => {
-    return await carritosDao.getById(product)
-}
-
 const serviceDeleteCart = async (id) => {
     return await carritosDao.delete(id)
 }
@@ -35,4 +31,4 @@ const serviceDeleteCartProducts = async (id, productID) => {
     }
 }
 
-export { serviceCreateCart, serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceDeleteCartProducts }
+export { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceDeleteCartProducts }

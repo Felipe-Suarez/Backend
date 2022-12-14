@@ -5,12 +5,18 @@ import upload from '../middleware/multer.js';
 
 import { serviceRegister } from '../services/register.js'
 
+import { validation } from '../../utils/validation.js';
+
 route.get('/', (req, res) => {
     res.render('register')
 })
 
 route.post("/", upload.single("image"), async (req, res) => {
-    await serviceRegister(req, res)
+    if (validation(req.body, res, '/register')) {
+        await serviceRegister(req, res)
+    } else {
+        res.redirect('/register')
+    }
 });
 
 export default route

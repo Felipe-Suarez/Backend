@@ -5,6 +5,8 @@ import { auth } from '../middleware/auth.js'
 
 import { serviceGetProducts, serviceGetProduct, serviceProductSave, serviceProductUpdate, serviceDeleteProduct } from '../services/productsApi.js'
 
+import { validation } from '../../utils/validation.js'
+
 route.use(auth)
 
 route.get('/', async (req, res) => {
@@ -19,7 +21,10 @@ route.get('/:id', async (req, res) => {
 
 route.post('/', async (req, res) => {
     const bodyProduct = req.body
-    await serviceProductSave(bodyProduct)
+
+    if (validation(bodyProduct)) {
+        await serviceProductSave(bodyProduct)
+    }
 
     res.redirect('/admin')
 })
@@ -28,7 +33,13 @@ route.put('/:id', async (req, res) => {
     const productId = req.params.id
     const bodyProduct = req.body
 
-    res.json(await serviceProductUpdate(bodyProduct, productId))
+    if (validation(bodyProduct)) {
+        await serviceProductUpdate(bodyProduct, productId)
+        res.json('Cambio realizado exitosamente')
+    } else {
+        res.json({ error: 'Error: el campo se encuentra vacio' })
+    }
+
 })
 
 route.delete('/:id', async (req, res) => {
