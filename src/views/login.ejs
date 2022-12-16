@@ -15,22 +15,23 @@
 
     <!-- SCRIPT -->
     <script src="js/inputMail.js" type="module" defer></script>
+    <script src="js/login.js" type="module" defer></script>
   </head>
   <body>
     <header class="header">
       <h1 class="header-title">Login</h1>
 
-      <form class="form" action="/login" method="POST">
+      <form id="loginForm" class="form">
         <div class="form-container">
           <div class="form-box">
-            <input required class="form-input" type="email" id="email" name="email" />
+            <input required class="form-input" type="email" id="email" />
             <span class="highlight"></span>
             <span class="bar"></span>
             <label class="form-label email-label" for="username">Email:</label>
           </div>
 
           <div class="form-box">
-            <input required class="form-input" type="password" id="password" name="password" />
+            <input required class="form-input" type="password" id="password" />
             <span class="highlight"></span>
             <span class="bar"></span>
             <label class="form-label" for="password">Contraseña:</label>

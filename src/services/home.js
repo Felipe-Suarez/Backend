@@ -11,7 +11,6 @@ const serviceHome = async (userId) => {
     }
 
     const productsInfo = await productosDao.list()
-
     const userData = await User.findById(userId);
 
     return { userData, productsInfo }

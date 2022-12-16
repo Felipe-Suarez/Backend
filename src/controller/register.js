@@ -12,7 +12,7 @@ route.get('/', (req, res) => {
 })
 
 route.post("/", upload.single("image"), async (req, res) => {
-    if (validation(req.body, res, '/register')) {
+    if (validation(req.body, res)) {
         await serviceRegister(req, res)
     } else {
         res.redirect('/register')

@@ -1,21 +1,29 @@
 import { AdminDB } from "../models/Admin.js";
 
+import jwt from 'jsonwebtoken'
+
 //auth
 
-const auth = (req, res, next) => {
+const auth = async (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    console.log(authHeader)
 
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.render("login");
+    if (!authHeader) {
+        return res.render('login')
     }
 
+    jwt.verify(authHeader, 'hola', (err, decoded) => {
+        if (err) {
+            return res.render('login')
+        }
+        next();
+    });
 };
 
 //admin
 
 const checkAdmin = async (req) => {
-    const email = await req.user.email
+    const email = await req.user?.email
     const isAdmin = await AdminDB.findOne({ email })
 
     return isAdmin?.email
