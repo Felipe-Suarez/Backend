@@ -16,7 +16,7 @@ import { chatDao } from './src/persistence/daos/index.js';
 
 import logger from './utils/logger.js'
 
-import { URL_MONGO, SECRET, PERS } from './config/index.js'
+import { URL_MONGO, SECRET } from './config/index.js'
 
 import { useDB } from './src/persistence/daos/index.js';
 

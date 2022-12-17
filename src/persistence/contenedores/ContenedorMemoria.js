@@ -30,20 +30,12 @@ class ContenedorMemoria {
 
     }
 
-    update(obj) {
-        const index = this.memoria.findIndex(item => item.id == obj.id)
+    update(obj, index) {
         if (index == -1) {
             throw new Error('Error')
         } else {
-            const oldObj = this.memoria[index]
-            const newObj = {
-                title: obj.title || oldObj.title,
-                price: obj.price || oldObj.price,
-                thumbnail: obj.thumbnail || oldObj.thumbnail,
-                id: parseInt(obj.id),
-            }
-            this.memoria.splice(index, 1, newObj)
-            return newObj
+            this.memoria.splice(index, 1, obj)
+            return obj
         }
     }
 

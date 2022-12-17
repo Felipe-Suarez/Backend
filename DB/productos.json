@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "title": "asfd",
+    "price": "234",
+    "thumbnail": "asdf",
+    "id": 1
+  },
+  {
+    "title": "asdf",
+    "price": "234",
+    "thumbnail": "234",
+    "id": 2
+  }
+]
