@@ -7,27 +7,36 @@ import { serviceUser } from '../services/userInfo.js'
 
 import multerEdit from '../middleware/multerEdit.js'
 
-route.use(auth)
 
-route.get('/', async (req, res) => {
-    const { userData, myCart } = await serviceUser(req.user?._id)
+route.get('/', auth, async (req, res) => {
+    if (req.user) {
+        const { userData, myCart } = await serviceUser(req.user?._id)
 
-    const veifyAdmin = await isAdmin(req)
+        const veifyAdmin = await isAdmin(req)
 
-    res.render('userInfo', {
-        userInfo: userData,
-        cartId: myCart.id,
-        userAdmin: veifyAdmin
-    })
+        res.render('userInfo', {
+            userInfo: userData,
+            cartId: myCart.id,
+            userAdmin: veifyAdmin
+        })
+    }
 })
 
 route.get('/name', async (req, res) => {
-    res.json(req.user.username)
+    if (req.user) {
+        res.json(req.user.username)
+    } else {
+        res.json({ error: 'Login require' })
+    }
 })
 
 route.get('/data', async (req, res) => {
-    const { myCart } = await serviceUser(req.user?._id)
-    res.send(myCart)
+    if (req.user) {
+        const { myCart } = await serviceUser(req.user?._id)
+        res.send(myCart)
+    } else {
+        res.json({ error: 'Login require' })
+    }
 })
 
 route.post('/editImg', multerEdit.single('newImage'), (req, res) => {

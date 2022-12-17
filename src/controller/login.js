@@ -5,6 +5,8 @@ import passport from '../middleware/passport.js'
 
 import jwt from 'jsonwebtoken'
 
+import { JWT } from '../../config/index.js'
+
 route.get('/', (req, res) => {
     res.render('login')
 })
@@ -17,7 +19,7 @@ route.post("/", passport.authenticate("local"), (req, res) => {
             email
         }
 
-        const token = jwt.sign(userToken, 'hola')
+        const token = jwt.sign(userToken, JWT)
         res.json({ token })
     } else {
         res.json({ error: 'error' })

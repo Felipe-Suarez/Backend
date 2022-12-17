@@ -2,22 +2,30 @@ import { AdminDB } from "../models/Admin.js";
 
 import jwt from 'jsonwebtoken'
 
+// import { JWT } from '../../config/index.js'
+
 //auth
 
 const auth = async (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    console.log(authHeader)
+    // const authHeader = req.headers.authorization;
+    // console.log('AUTH:', authHeader)
 
-    if (!authHeader) {
-        return res.render('login')
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.render('login')
     }
 
-    jwt.verify(authHeader, 'hola', (err, decoded) => {
-        if (err) {
-            return res.render('login')
-        }
-        next();
-    });
+    // if (!authHeader) {
+    //     return res.render('login')
+    // }
+
+    // jwt.verify(authHeader, JWT, (err, decoded) => {
+    //     if (err) {
+    //         return res.render('login')
+    //     }
+    //     next();
+    // });
 };
 
 //admin

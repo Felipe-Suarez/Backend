@@ -12,6 +12,8 @@ const OPTIONS_MONGO = {
     serverSelectionTimeoutMS: 5000,
 }
 
+const JWT = process.env.JWT
+
 const MAIL = process.env.MAIL
 const PASS_MAIL = process.env.PASS_MAIL
 
@@ -20,5 +22,5 @@ const TWILIO_TOKEN = process.env.TWILIO_TOKEN
 const TWILIO_NUMBER = process.env.TWILIO_NUMBER
 
 export {
-    PERS, SECRET, URL_MONGO, OPTIONS_MONGO, MAIL, PASS_MAIL, TWILIO_SID, TWILIO_TOKEN, TWILIO_NUMBER
+    PERS, SECRET, URL_MONGO, OPTIONS_MONGO, JWT, MAIL, PASS_MAIL, TWILIO_SID, TWILIO_TOKEN, TWILIO_NUMBER
 }

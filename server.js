@@ -41,10 +41,6 @@ import { useDB } from './src/persistence/daos/index.js';
 //init
 const app = express();
 
-// SOCKET
-const httpServer = new HttpServer(app)
-const io = new IOServer(httpServer)
-
 //compression gzip
 app.use(compression({ filter: shouldCompress }))
 function shouldCompress(req, res) {
@@ -91,7 +87,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', router)
 
-//SOCKET
+// SOCKET
+const httpServer = new HttpServer(app)
+const io = new IOServer(httpServer)
 
 io.on('connection', async function (socket) {
     logger.info('Usuario conectado');

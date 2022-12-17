@@ -27,7 +27,11 @@
   <body>
     <%- include('partials/header.ejs'); %>
     <main>
+      <% if (!userInfo) {%>
+      <h2 class="main-title">No estas logeado</h2>
+      <%} %> <% if (userInfo) {%>
       <h2 class="main-title">Bienvenido <%= userInfo.username %></h2>
+      <%} %>
       <div class="main">
         <% if (productsInfo.length === 0) { %>
         <h2 class="main-title">No hay productos disponibles</h2>

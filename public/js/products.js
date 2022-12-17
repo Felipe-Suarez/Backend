@@ -19,9 +19,10 @@ productContainer.addEventListener('click', (e) => {
                 body: JSON.stringify({
                     id: productId
                 })
-            }).then(
-                alert('Producto agregado a tu carrito')
-            )
+            }).then(() => {
+                if (cartId) alert('Producto agregado a tu carrito')
+                else { window.location.href = '/login' }
+            })
 
         }
     })

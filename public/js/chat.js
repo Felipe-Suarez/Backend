@@ -36,11 +36,11 @@ function renderChat(data) {
     if (data.length > 0) {
         chatHTML = data
             .map((elem, index) => {
-                return `<div class='msg-container'>
-                <strong class='msg-author'>${elem.author}:</strong>
-                <p class='msg-text'>${elem.text}</p> 
-                <span class="msg-date">[${elem.date}]<span>
-            </div>`;
+                return `<div id='${index}' class='msg-container'>
+                            <strong class='msg-author'>${elem.author}:</strong>
+                            <p class='msg-text'>${elem.text}</p> 
+                            <span class="msg-date">[${elem.date}]<span>
+                        </div>`;
             })
             .join(" ");
     }
@@ -57,7 +57,7 @@ const getName = async () => {
     let name;
     await fetch("/userInfo/name")
         .then((res) => res.json())
-        .then((data) => (name = data));
+        .then((data) => name = data);
     return name;
 };
 
@@ -68,14 +68,19 @@ chatForm.addEventListener("submit", (e) => {
 });
 
 async function addMessage() {
-    const newMsg = {
-        author: await getName(),
-        date: `${new Date().toLocaleDateString()} - (${new Date().toLocaleTimeString()})`,
-        text: document.getElementById("userMsg").value,
-    };
-    socket.emit("new-message", newMsg);
+    const isLogin = await getName()
+    if (isLogin.error) {
+        window.location.href = '/login'
+    } else {
+        const newMsg = {
+            author: await getName(),
+            date: `${new Date().toLocaleDateString()} - (${new Date().toLocaleTimeString()})`,
+            text: document.getElementById("userMsg").value,
+        };
+        socket.emit("new-message", newMsg);
 
-    document.getElementById("userMsg").value = ''
+        document.getElementById("userMsg").value = ''
 
-    return false;
+        return false;
+    }
 }

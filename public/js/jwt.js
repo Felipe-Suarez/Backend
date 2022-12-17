@@ -1,8 +1,16 @@
-// const token = localStorage.getItem('token')
+// const userInfo = document.getElementById('userInfoProfile')
 
-// fetch('/', {
-//     headers: {
-//         "Content-Type": "application/json",
-//         "Authorization": token
-//     }
+// const jwtFetch = async (url) => {
+//     const token = localStorage.getItem('token')
+
+//     await fetch(url, {
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Authorization": token
+//         }
+//     })
+// }
+
+// userInfo.addEventListener('click', () => {
+//     jwtFetch('/userInfo')
 // })
