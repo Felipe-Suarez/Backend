@@ -27,12 +27,16 @@
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Tu perfil</h2>
+
+      <!-- USER INFO -->
       <div class="card">
         <div class="card-img-box">
           <img class="card-img" src="/profileImgs/<%= userInfo.image %>" alt="profile img" />
+
           <label for="editImg" class="card-img-label">
             <i class="bx bxs-edit-alt bx-md edit-img"></i>
           </label>
+
           <form
             class="card-img-box-form"
             action="/userInfo/editImg"
@@ -42,6 +46,7 @@
             <input id="editImg" type="file" name="newImage" />
           </form>
         </div>
+
         <ul>
           <li class="card-item">Nombre: <%= userInfo.username %></li>
           <li class="card-item">Email: <%= userInfo.email %></li>

@@ -30,6 +30,7 @@
       <h2 class="main-title">Administración</h2>
       <button id="vaciarChat">Vaciar Chat</button>
       <div class="main">
+        <!-- ADD PRODUCTS -->
         <form class="form" action="/api/products" method="POST">
           <h3 class="main-title">Agregar productos</h3>
           <div class="form-container">
@@ -53,6 +54,8 @@
             <input class="form-btn" type="submit" value="Agregar" /><i class="form-btn-i"></i>
           </div>
         </form>
+
+        <!-- SHOW PRODUCTS -->
         <% if (productsInfo.length === 0) { %>
         <h2 class="main-title">No hay productos disponibles</h2>
         <% } %>

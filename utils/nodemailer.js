@@ -13,6 +13,7 @@ const transporter = createTransport({
     }
 });
 
+//WHEN USER IS REGISTER
 const sendMail = async (data) => {
 
     const emailContent = {
@@ -39,6 +40,7 @@ const sendMail = async (data) => {
 
 }
 
+//WHEN USER PAY
 const newPurchase = async (data) => {
 
     const user = data.username;

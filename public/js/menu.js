@@ -1,6 +1,8 @@
 const navIcon = document.querySelector(".nav-icon");
 const navList = document.querySelector(".nav-list");
 
+//BURGER MENU EFFECT
+
 navIcon.addEventListener("click", () => {
     navIcon.classList.toggle('nav-icon-down')
     navList.classList.toggle('nav-list-open')

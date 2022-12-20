@@ -20,12 +20,12 @@ closeBtn.addEventListener('click', () => {
     }, 200)
 })
 
-//SCROLL BOTTOM
+//SCROLL BOTTOM FEATURE
 
 const chat = document.querySelector('.chat')
 chat.scrollTop = chat.scrollHeight
 
-// SOCKET
+// SOCKET IO
 
 const socket = io.connect();
 
@@ -49,10 +49,12 @@ function renderChat(data) {
     chat.scrollTop = chat.scrollHeight;
 }
 
+//LISTENNIG MSG
 socket.on("messages", function (data) {
     renderChat(data);
 });
 
+//NAME IN CHAT IF IS LOGGED
 const getName = async () => {
     let name;
     await fetch("/userInfo/name")
@@ -61,6 +63,7 @@ const getName = async () => {
     return name;
 };
 
+//INPUT
 const chatForm = document.querySelector(".chat-input-box");
 chatForm.addEventListener("submit", (e) => {
     e.preventDefault();

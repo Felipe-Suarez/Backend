@@ -31,6 +31,8 @@
         <% if (cartInfo.length === 0) { %>
         <h2 class="main-title">No hay productos en tu carrito</h2>
         <% } %>
+
+        <!-- SHOW PRODUCTS -->
         <div class="product-container">
           <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
           <div class="product" name="<%=product.id%>">

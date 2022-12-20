@@ -36,18 +36,24 @@
         <% if (productsInfo.length === 0) { %>
         <h2 class="main-title">No hay productos disponibles</h2>
         <% } %>
+
+        <!-- SHOW PRODUCTS -->
         <div class="product-container">
           <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
+
           <div class="product" name="<%= product.id %>">
             <div class="product-img">
               <img src="<%= product.thumbnail %>" />
             </div>
+
             <div class="product-box">
               <p class="product-box-title"><%= product.title %></p>
               <span class="product-box-price">$ <%= product.price %></span>
             </div>
+
             <button class="product-btn">Agregar al carrito</button>
           </div>
+
           <% }); %> <% } %>
         </div>
       </div>

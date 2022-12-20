@@ -3,8 +3,10 @@ let cartId = '';
 const productBtn = document.querySelectorAll('.product-btn')
 const productContainer = document.querySelector('.product-container')
 
+//GET CART ID
 fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
 
+//ADD PRODUCTS IN CART
 productContainer.addEventListener('click', (e) => {
     productBtn.forEach(btn => {
         if (e.target === btn) {
@@ -19,7 +21,7 @@ productContainer.addEventListener('click', (e) => {
                 body: JSON.stringify({
                     id: productId
                 })
-            }).then(() => {
+            }).then(() => { //IF USER IS LOGGED
                 if (cartId) alert('Producto agregado a tu carrito')
                 else { window.location.href = '/login' }
             })

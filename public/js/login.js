@@ -5,6 +5,8 @@ const password = document.getElementById('password')
 
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    //SEND DATA
     fetch('/login', {
         method: 'POST',
         headers: {
@@ -14,7 +16,7 @@ loginForm.addEventListener('submit', (e) => {
             email: email.value,
             password: password.value
         })
-    }).then(res => res.json()).then(data => {
+    }).then(res => res.json()).then(data => { //REDIRECT
         if (data.error) {
             window.location.href = '/loginError'
         } else {

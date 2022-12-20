@@ -1,3 +1,5 @@
+//VERIFY THE CONTENT IS NOT EMPTY
+
 export const validation = (props) => {
     const array = Object.values(props)
 

@@ -1,7 +1,13 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
+//ENVIRONMENT VARIABLES
+
+const NODE_ENV = process.env.NODE_ENV
+
 const PERS = process.env.PERS
+
+const PORT = process.env.PORT
 
 const SECRET = process.env.SECRET
 
@@ -22,5 +28,5 @@ const TWILIO_TOKEN = process.env.TWILIO_TOKEN
 const TWILIO_NUMBER = process.env.TWILIO_NUMBER
 
 export {
-    PERS, SECRET, URL_MONGO, OPTIONS_MONGO, JWT, MAIL, PASS_MAIL, TWILIO_SID, TWILIO_TOKEN, TWILIO_NUMBER
+    NODE_ENV, PERS, PORT, SECRET, URL_MONGO, OPTIONS_MONGO, JWT, MAIL, PASS_MAIL, TWILIO_SID, TWILIO_TOKEN, TWILIO_NUMBER
 }

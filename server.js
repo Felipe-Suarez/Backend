@@ -16,7 +16,7 @@ import { chatDao } from './src/persistence/daos/index.js';
 
 import logger from './utils/logger.js'
 
-import { URL_MONGO, SECRET } from './config/index.js'
+import { URL_MONGO, SECRET, PORT, NODE_ENV } from './config/index.js'
 
 import { useDB } from './src/persistence/daos/index.js';
 
@@ -111,10 +111,11 @@ io.on('connection', async function (socket) {
     });
 })
 
-//port
-const PORT = process.env.PORT || 8080;
+let usePort;
+if (NODE_ENV === 'prod') usePort = PORT
+else usePort = 8080
 
 //listen
-httpServer.listen(PORT, () => logger.info(`Escuchando al puerto ${PORT}. Utilizando ${useDB}`))
+httpServer.listen(usePort, () => logger.info(`Escuchando al puerto ${usePort}. Utilizando ${useDB}`))
 httpServer.on('error', (err) => logger.error(err))
 // }
