@@ -16,6 +16,7 @@ import registerError from '../controller/registerError.js'
 import admin from '../controller/admin.js'
 import cart from '../controller/cart.js'
 import userInfo from '../controller/userInfo.js'
+import token from '../controller/token.js'
 
 //middlewares
 router
@@ -31,7 +32,7 @@ router
     .use('/admin', admin)
     .use('/cart', cart)
     .use('/userInfo', userInfo)
-    .use("*", error);
-
+    .use('/token', token)
+    .use("*", error)
 
 export default router

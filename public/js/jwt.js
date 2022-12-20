@@ -1,16 +1,9 @@
-// const userInfo = document.getElementById('userInfoProfile')
+const token = localStorage.getItem('token')
 
-// const jwtFetch = async (url) => {
-//     const token = localStorage.getItem('token')
-
-//     await fetch(url, {
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Authorization": token
-//         }
-//     })
-// }
-
-// userInfo.addEventListener('click', () => {
-//     jwtFetch('/userInfo')
-// })
+fetch('/token', {
+    method: 'get',
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+    }
+})

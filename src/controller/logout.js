@@ -8,10 +8,12 @@ route.get("/", async (req, res) => {
 
     req.session.destroy((err) => {
         if (!err) {
-            res.render('logout', { user: userData.username });
+            res.clearCookie('token')
+            return res.render('logout', { user: userData.username });
         }
         else {
-            res.redirect('/login')
+            res.clearCookie('token')
+            return res.redirect('/login')
         }
     });
 
