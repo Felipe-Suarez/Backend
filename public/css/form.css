@@ -28,6 +28,25 @@
   position: relative;
 }
 
+.form-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.form-box-phone {
+  width: 70%;
+  margin: 0;
+}
+
+.form-box-age {
+  width: 20%;
+  margin: 0;
+}
+
 /* INPUT */
 
 .form-input {

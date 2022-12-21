@@ -9,7 +9,12 @@ import logger from '../../utils/logger.js'
 import fs from 'fs'
 
 const serviceRegister = async (req, res) => {
-    const { username, password, email, direction, age, phone } = req.body;
+    const { username, password, confirmPassword, email, direction, age, phone } = req.body;
+
+    if (password !== confirmPassword) {
+        fs.unlink(`public/profileImgs/${req.file.filename}`, err => logger.error(err))
+        return res.render('error', { msg: 'Las contraseñas deben ser iguales' })
+    }
 
     User.findOne({ email }, async (err, user) => {
 
