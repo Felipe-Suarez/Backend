@@ -4,7 +4,7 @@ const route = Router()
 import jwt from 'jsonwebtoken'
 import { JWT } from '../../config/index.js'
 
-route.get('/', (req, res) => {
+route.post('/', (req, res) => {
 
     const authHeader = req.headers.authorization;
 

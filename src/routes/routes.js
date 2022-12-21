@@ -9,30 +9,30 @@ import cartApi from '../controller/cartApi.js'
 import error from '../controller/error.js'
 import home from '../controller/home.js'
 import login from '../controller/login.js'
-import loginError from '../controller/loginError.js'
+import invalidRoute from '../controller/invalidRoute.js'
 import logout from '../controller/logout.js'
 import register from '../controller/register.js'
-import registerError from '../controller/registerError.js'
 import admin from '../controller/admin.js'
 import cart from '../controller/cart.js'
 import userInfo from '../controller/userInfo.js'
 import token from '../controller/token.js'
+import config from '../controller/config.js'
 
 //middlewares
 router
     .use("/api/products", productsApi)
     .use("/api/chat", chatApi)
     .use("/api/cart", cartApi)
-    .use('/', home)
-    .use('/login', login)
-    .use('/loginError', loginError)
-    .use('/logout', logout)
     .use('/register', register)
-    .use('/registerError', registerError)
+    .use('/login', login)
+    .use('/', error)
+    .use('/', home)
+    .use('/logout', logout)
     .use('/admin', admin)
     .use('/cart', cart)
     .use('/userInfo', userInfo)
     .use('/token', token)
-    .use("*", error)
+    .use('/config', config)
+    .use("*", invalidRoute)
 
 export default router

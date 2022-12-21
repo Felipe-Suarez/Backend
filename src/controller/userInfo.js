@@ -7,7 +7,6 @@ import { serviceUser } from '../services/userInfo.js'
 
 import multerEdit from '../middleware/multerEdit.js'
 
-
 route.get('/', auth, async (req, res) => {
     if (req.user) {
         const { userData, myCart } = await serviceUser(req.user?._id)
@@ -26,7 +25,7 @@ route.get('/name', async (req, res) => {
     if (req.user) {
         res.json(req.user.username)
     } else {
-        res.json({ error: 'Login require' })
+        res.redirect('/loginError')
     }
 })
 
@@ -35,7 +34,7 @@ route.get('/data', async (req, res) => {
         const { myCart } = await serviceUser(req.user?._id)
         res.send(myCart)
     } else {
-        res.json({ error: 'Login require' })
+        res.redirect('/loginError')
     }
 })
 

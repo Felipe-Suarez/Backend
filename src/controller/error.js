@@ -1,9 +1,12 @@
-import express from 'express'
-const { Router } = express
-const route = Router();
+import { Router } from 'express';
+const route = Router()
 
-route.all("*", (req, res) => {
-    res.json({ error: -2, descripcion: `ruta '${req.originalUrl}' motodo '${req.method}' no implementada` })
+route.get('/loginError', (req, res) => {
+    res.render('error', { msg: 'Credenciales no validas' })
 })
 
-export default route;
+route.get('/registerError', (req, res) => {
+    res.render('error', { msg: 'Usuario ya registrado' })
+})
+
+export default route
