@@ -16,7 +16,7 @@ import { chatDao } from './src/persistence/daos/index.js';
 
 import logger from './utils/logger.js'
 
-import { URL_MONGO, SECRET, PORT, NODE_ENV } from './config/index.js'
+import { URL_MONGO, SECRET, PORT, NODE_ENV, MAX_AGE } from './config/index.js'
 
 import { useDB } from './src/persistence/daos/index.js';
 
@@ -70,7 +70,7 @@ app.use(
         resave: true,
         saveUninitialized: true,
         rolling: true,
-        cookie: { maxAge: 600000 }
+        cookie: { maxAge: Number(MAX_AGE) }
     })
 );
 

@@ -26,7 +26,7 @@ const admin = (req, res, next) => {
         if (response) {
             next();
         } else {
-            res.render("unAuthorized");
+            res.render("error", { msg: 'Acceso denegado, no estas autorizado' });
         }
     })
 
