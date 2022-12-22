@@ -1,0 +1,150 @@
+.product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.product-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+  gap: 10px;
+  width: 200px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+.product-box-fragment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.product-box-title {
+  width: 100%;
+}
+
+.product-box-price {
+  width: 100%;
+  font-size: 20px;
+}
+
+.product-box-img {
+  width: 100%;
+}
+
+.box-title {
+  order: 1;
+}
+
+.box-img {
+  order: 2;
+}
+
+.box-detail {
+  order: 3;
+}
+
+/* BTN */
+
+.product-btn {
+  padding: 15px 25px;
+  margin: 0 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.product-btn:hover {
+  color: #e8e8e8;
+}
+
+.product-btn:hover::before {
+  width: 100%;
+}
+
+/* MEDIAQUERYS */
+
+@media screen and (min-width: 528px) {
+  .box-title {
+    order: 2;
+    height: 400px;
+    justify-content: unset;
+    border: none;
+    padding: unset;
+  }
+
+  .product-box-fragment {
+    position: sticky;
+    top: 0;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+  }
+
+  .box-img {
+    order: 1;
+    width: unset;
+    height: 400px;
+  }
+
+  .product-box-img {
+    height: 100%;
+    width: unset;
+  }
+
+  .box-detail {
+    order: 3;
+  }
+}
+
+@media screen and (min-width: 792px) {
+  .box-title {
+    /* position: sticky;
+    top: 20px; */
+    margin-right: 10%;
+  }
+
+  .box-img {
+    margin-left: 10%;
+  }
+
+  .box-detail {
+    width: 100%;
+    margin: 0 10%;
+  }
+}

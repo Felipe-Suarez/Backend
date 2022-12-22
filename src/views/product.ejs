@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TITLE -->
+    <title>Producto</title>
+
+    <!-- LINK -->
+    <%- include('partials/icon.ejs'); %>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/productDetail.css" />
+    <link rel="stylesheet" href="/css/cart.css" />
+    <link rel="stylesheet" href="/css/chat.css" />
+
+    <!-- SCRIPT -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="/js/cart.js" type="module" defer></script>
+    <script src="/js/menu.js" type="module" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js" type="module" defer></script>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+    <main>
+      <div class="product">
+        <div class="product-box box-title">
+          <div class="product-box-fragment">
+            <h2 class="product-box-title"><%= productInfo.title %></h2>
+            <span class="product-box-price">$ <%= productInfo.price %></span>
+            <button class="product-btn">Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="product-box box-img">
+          <img class="product-box-img" src="<%= productInfo.thumbnail %>" />
+        </div>
+
+        <div class="product-box box-detail">
+          <h2 class="product-box-title">Descripcion:</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum id eligendi ad
+            dolore totam. Consectetur reprehenderit cum omnis! Enim debitis accusamus error neque,
+            dolor repellendus aspernatur eius sequi quod. Accusamus, eveniet rerum pariatur quos
+            natus amet laboriosam quia magni dolorum labore temporibus saepe asperiores, sequi
+            obcaecati nesciunt veniam eius quo ipsam a quaerat. Architecto laudantium non sit hic
+            dicta? Eos voluptas sapiente iure expedita facilis? Sint delectus voluptatem nulla
+            corporis esse facere aperiam expedita
+          </p>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/chat.ejs'); %> <%- include('partials/footer.ejs'); %>
+  </body>
+</html>

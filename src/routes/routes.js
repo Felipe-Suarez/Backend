@@ -11,6 +11,7 @@ import login from '../controller/login.js'
 import error from '../controller/error.js'
 import home from '../controller/home.js'
 import category from '../controller/category.js'
+import products from '../controller/products.js'
 import logout from '../controller/logout.js'
 import admin from '../controller/admin.js'
 import cart from '../controller/cart.js'
@@ -29,6 +30,7 @@ router
     .use('/', error)
     .use('/', home)
     .use('/categoria', category)
+    .use('/productos', products)
     .use('/logout', logout)
     .use('/admin', admin)
     .use('/cart', cart)
