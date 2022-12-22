@@ -4,19 +4,20 @@ const router = express.Router();
 //router
 
 import productsApi from '../controller/productsApi.js'
-import chatApi from '../controller/chatApi.js'
 import cartApi from '../controller/cartApi.js'
+import chatApi from '../controller/chatApi.js'
+import register from '../controller/register.js'
+import login from '../controller/login.js'
 import error from '../controller/error.js'
 import home from '../controller/home.js'
-import login from '../controller/login.js'
-import invalidRoute from '../controller/invalidRoute.js'
+import category from '../controller/category.js'
 import logout from '../controller/logout.js'
-import register from '../controller/register.js'
 import admin from '../controller/admin.js'
 import cart from '../controller/cart.js'
 import userInfo from '../controller/userInfo.js'
 import token from '../controller/token.js'
 import config from '../controller/config.js'
+import invalidRoute from '../controller/invalidRoute.js'
 
 //middlewares
 router
@@ -27,6 +28,7 @@ router
     .use('/login', login)
     .use('/', error)
     .use('/', home)
+    .use('/categoria', category)
     .use('/logout', logout)
     .use('/admin', admin)
     .use('/cart', cart)

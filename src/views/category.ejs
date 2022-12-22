@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="/css/chat.css" />
 
     <!-- SCRIPT -->
-    <script src="/js/jwt.js" type="module" defer></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/js/products.js" type="module" defer></script>
     <script src="/js/menu.js" type="module" defer></script>
@@ -41,7 +40,7 @@
       <h2 class="main-title">BIENVENIDO <%= username %> !!</h2>
       <%} %>
 
-      <div class="main-link main-home">
+      <div class="main-link main-category">
         <a class="main-home-link" href="/categoria">VER TODOS LOS PRODUCTOS</a>
       </div>
 
@@ -51,7 +50,6 @@
         <% } %>
 
         <!-- SHOW PRODUCTS -->
-        <h2 class="main-title">Productos en promocion!!</h2>
         <div class="product-container">
           <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
 

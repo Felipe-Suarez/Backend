@@ -20,6 +20,12 @@ import { URL_MONGO, SECRET, PORT, NODE_ENV, MAX_AGE } from './config/index.js'
 
 import { useDB } from './src/persistence/daos/index.js';
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // import cluster from 'cluster'
 // import CPUs from 'os'
 // const numCPUs = CPUs.cpus().length
@@ -82,7 +88,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs')
 
 //middlewares
-app.use(express.static('./public'))
+app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', router)

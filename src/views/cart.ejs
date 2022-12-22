@@ -11,23 +11,23 @@
 
     <!-- LINK -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/cart.css" />
-    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/cart.css" />
+    <link rel="stylesheet" href="/css/chat.css" />
 
     <!-- SCRIPT -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="js/cart.js" type="module" defer></script>
-    <script src="js/menu.js" type="module" defer></script>
+    <script src="/js/cart.js" type="module" defer></script>
+    <script src="/js/menu.js" type="module" defer></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/chat.js" type="module" defer></script>
+    <script src="/js/chat.js" type="module" defer></script>
   </head>
   <body>
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Tu carrito</h2>
-      <div class="main">
+      <div class="main-products">
         <% if (cartInfo.length === 0) { %>
         <h2 class="main-title">No hay productos en tu carrito</h2>
         <% } %>

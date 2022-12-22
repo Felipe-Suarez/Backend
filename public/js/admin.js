@@ -33,11 +33,8 @@ const editInput = (e, editBtn, productInput, saveBox) => {
 }
 
 const indentifyInput = (productInput) => {
-    const type = productInput.getAttribute('type')
-    if (type === 'number') {
-        return false
-    }
-    return true
+    const name = productInput.getAttribute('name')
+    return name
 }
 
 const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
@@ -47,7 +44,24 @@ const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
 
         let productId = box.parentElement.parentElement.attributes.name.nodeValue
 
-        if (indentifyInput(productInput)) {
+        if (indentifyInput(productInput) === 'price') {
+            fetch(`/api/products/${productId}`, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    price: parseInt(productInput.value)
+                })
+            }).then(res => res.json()).then(data => {
+                if (data?.error) {
+                    alert(data.error)
+                    window.location.href = '/admin'
+                } else {
+                    alert(data)
+                }
+            })
+        } else if (indentifyInput(productInput) === 'title') {
             fetch(`/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
@@ -71,7 +85,7 @@ const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    price: parseInt(productInput.value)
+                    category: productInput.value
                 })
             }).then(res => res.json()).then(data => {
                 if (data?.error) {
@@ -93,12 +107,15 @@ const saveCancel = (e, editCancel, editBtn, saveBox, box, productInput) => {
 
         let productId = box.parentElement.parentElement.attributes.name.nodeValue
 
-        if (indentifyInput(productInput)) {
+        if (indentifyInput(productInput) === 'title') {
             fetch(`/api/products/${productId}`).then(res => res.json())
                 .then(data => productInput.value = data.title)
-        } else {
+        } else if (indentifyInput(productInput) === 'price') {
             fetch(`/api/products/${productId}`).then(res => res.json())
                 .then(data => productInput.value = data.price)
+        } else {
+            fetch(`/api/products/${productId}`).then(res => res.json())
+                .then(data => productInput.value = data.category)
         }
     }
 }
