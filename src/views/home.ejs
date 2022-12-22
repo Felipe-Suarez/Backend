@@ -10,6 +10,7 @@
     <title>Home</title>
 
     <!-- LINK -->
+    <%- include('partials/icon.ejs'); %>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/index.css" />
@@ -51,7 +52,10 @@
         <% } %>
 
         <!-- SHOW PRODUCTS -->
-        <h2 class="main-title">Productos en promocion!!</h2>
+        <div class="main-promotion">
+          <h2 class="main-title">Productos en promocion!!</h2>
+          <i class="bx bx-chevrons-down bx-md promotion-icon"></i>
+        </div>
         <div class="product-container">
           <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
 

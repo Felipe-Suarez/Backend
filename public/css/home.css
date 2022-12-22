@@ -37,3 +37,17 @@
 .main-category {
   height: unset;
 }
+
+.main-promotion {
+  display: block;
+  text-align: center;
+}
+
+.main-promotion .main-title {
+  margin: 0;
+}
+
+.promotion-icon {
+  position: relative;
+  top: 5px;
+}

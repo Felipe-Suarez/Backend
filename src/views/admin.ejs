@@ -10,6 +10,7 @@
     <title>Admin</title>
 
     <!-- LINK -->
+    <%- include('partials/icon.ejs'); %>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/index.css" />
@@ -50,9 +51,16 @@
               <i class="form-box-i"></i>
             </div>
             <div class="form-box">
-              <input required class="form-box-input" type="text" name="category" />
+              <select class="form-select-box" required name="category">
+                <option disabled selected></option>
+                <option>mates</option>
+                <option>termos</option>
+                <option>bombillas</option>
+                <option>yerbas</option>
+                <option>materas</option>
+              </select>
               <label class="form-box-label">Categoria:</label>
-              <i class="form-box-i"></i>
+              <i class="form-box-i select-i"></i>
             </div>
           </div>
           <div class="form-btn-box">
@@ -99,7 +107,15 @@
               </div>
 
               <div class="product-box-position">
-                <input class="product-box-title" value="<%= product.category %>" name="category" />
+                <!-- <input class="product-box-title" value="<%= product.category %>" name="category" /> -->
+                <select class="product-box-title" required name="category">
+                  <option selected><%= product.category %></option>
+                  <option>mates</option>
+                  <option>termos</option>
+                  <option>bombillas</option>
+                  <option>yerbas</option>
+                  <option>materas</option>
+                </select>
                 <i class="bx bxs-edit-alt bx-sm product-edit-btn"></i>
                 <div class="product-edit-box">
                   <i class="bx bxs-check-square bx-sm product-edit-confirm"></i>

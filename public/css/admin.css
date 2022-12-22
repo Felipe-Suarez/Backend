@@ -23,7 +23,7 @@
 
 .form-box {
   position: relative;
-  width: 196px;
+  width: 190px;
 }
 
 .form-box .form-box-input {
@@ -76,6 +76,33 @@
 .form-box .form-box-input:valid ~ .form-box-i,
 .form-box .form-box-input:focus ~ .form-box-i {
   height: 44px;
+}
+
+/* SELECT FORM */
+
+.form-select-box {
+  width: 110%;
+  padding: 15px 10px 10px;
+  cursor: pointer;
+  color: #000;
+  font-size: 20px;
+  border: none;
+}
+
+.form-box .form-select-box:valid ~ .form-box-label,
+.form-box .form-select-box:focus ~ .form-box-label {
+  color: #5264ae;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0, 75em;
+}
+
+.form-select-box:focus {
+  outline: none;
+}
+
+.form-select-box option {
+  background-color: #5264ae;
+  color: #fff;
 }
 
 /* BUTTON */

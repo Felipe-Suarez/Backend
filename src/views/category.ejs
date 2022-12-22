@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/chat.css" />
 
     <!-- SCRIPT -->
+    <%- include('partials/icon.ejs'); %>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/js/products.js" type="module" defer></script>
     <script src="/js/menu.js" type="module" defer></script>
@@ -36,9 +37,11 @@
       </ul>
       <% if (!userInfo) {%>
       <h2 class="main-title">No estas logeado</h2>
-      <%} %> <% if (userInfo) {%>
+      <%} %> <% if (userInfo) {%> <% if (msg) {%>
+      <h2 class="main-title">BIENVENIDO <%= username %>, <%= msg %> !</h2>
+      <%} %> <% if (!msg) {%>
       <h2 class="main-title">BIENVENIDO <%= username %> !!</h2>
-      <%} %>
+      <%} %> <%} %>
 
       <div class="main-link main-category">
         <a class="main-home-link" href="/categoria">VER TODOS LOS PRODUCTOS</a>
