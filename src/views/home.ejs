@@ -53,8 +53,8 @@
 
         <!-- SHOW PRODUCTS -->
         <div class="main-promotion">
-          <h2 class="main-title">Productos en promocion!!</h2>
-          <i class="bx bx-chevrons-down bx-md promotion-icon"></i>
+          <h2 id="mainPromotion" class="main-title">Productos en promocion!!</h2>
+          <a href="#mainPromotion"><i class="bx bx-chevrons-down bx-md promotion-icon"></i></a>
         </div>
         <div class="product-container">
           <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
@@ -69,6 +69,10 @@
               <span class="product-box-price">$ <%= product.price %></span>
             </div>
 
+            <div class="product-description">
+              <span id="productDescription"> Ver descripcion </span>
+              <i class="bx bx-chevrons-right"></i>
+            </div>
             <button class="product-btn">Agregar al carrito</button>
           </div>
 

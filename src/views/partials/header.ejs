@@ -21,18 +21,38 @@
         </a>
       </div>
     </div>
+    <% if (userAdmin) {%>
+    <a href="/admin" class="admin-icon"><i class="bx bxs-universal-access bx-md"></i></a>
+    <%} %>
   </div>
   <ul class="nav-list">
     <% if (userInfo) {%> <% if (userAdmin) {%>
-    <li class="nav-list-item"><a href="/admin">Administracion</a></li>
+    <li class="nav-list-item">
+      <a href="/admin"><i class="bx bxs-universal-access"></i> Administracion</a>
+    </li>
     <%} %>
-    <li class="nav-list-item"><a href="/">Inicio</a></li>
-    <li class="nav-list-item"><a href="/cart">Carrito</a></li>
-    <li class="nav-list-item"><a href="/userInfo">Informacion del perfil</a></li>
-    <li class="nav-list-item"><a href="/logout">Cerrar sesion</a></li>
+    <li class="nav-list-item">
+      <a href="/"><i class="bx bxs-home"></i> Inicio</a>
+    </li>
+    <li class="nav-list-item">
+      <a href="/cart"> <i class="bx bxs-cart"></i> Carrito</a>
+    </li>
+    <li class="nav-list-item">
+      <a href="/userInfo"><i class="bx bx-user"></i> Informacion del perfil</a>
+    </li>
+    <li class="nav-list-item">
+      <a href="/config"><i class="bx bxs-cog"></i> Ver configuracion</a>
+    </li>
+    <li class="nav-list-item">
+      <a href="/logout"><i class="bx bx-log-out"></i> Cerrar sesion</a>
+    </li>
     <%} %> <% if (!userInfo) {%>
-    <li class="nav-list-item"><a href="/login">Login</a></li>
-    <li class="nav-list-item"><a href="/register">Register</a></li>
+    <li class="nav-list-item">
+      <a href="/login"><i class="bx bx-log-in"></i> Login</a>
+    </li>
+    <li class="nav-list-item">
+      <a href="/register"><i class="bx bxs-spreadsheet"></i> Register</a>
+    </li>
     <%} %>
   </ul>
 </header>
