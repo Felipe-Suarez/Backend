@@ -23,9 +23,13 @@ route.get('/', auth, async (req, res) => {
 
 route.get('/name', async (req, res) => {
     if (req.user) {
-        res.json(req.user.username)
+        const dtoUser = {
+            username: req.user.username,
+            mail: req.user.email
+        }
+        res.json(dtoUser)
     } else {
-        res.redirect('/loginError')
+        res.json({ error: 'falta login' })
     }
 })
 

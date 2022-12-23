@@ -9,12 +9,17 @@ route.get('/:id', async (req, res) => {
     const productId = req.params.id
     const product = await serviceGetProduct(productId)
 
-    const veifyAdmin = await isAdmin(req)
-    res.render('product', {
-        userInfo: req.user,
-        userAdmin: veifyAdmin,
-        productInfo: product
-    })
+    if (product.error) {
+        res.render('error', { msg: product.error })
+    } else {
+
+        const veifyAdmin = await isAdmin(req)
+        res.render('product', {
+            userInfo: req.user,
+            userAdmin: veifyAdmin,
+            productInfo: product
+        })
+    }
 })
 
 export default route

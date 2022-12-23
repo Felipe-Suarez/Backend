@@ -17,7 +17,7 @@ class ContenedorMongoDb {
                 return result;
             }
         } catch (error) {
-            throw new Error(`Error al listar el documento con id ${id}: ${error}`);
+            return { error: 'El producto no existe' }
         }
     }
 

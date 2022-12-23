@@ -55,12 +55,16 @@ socket.on("messages", function (data) {
 });
 
 //NAME IN CHAT IF IS LOGGED
-const getName = async () => {
+const getUser = async () => {
     let name;
+    let email;
     await fetch("/userInfo/name")
         .then((res) => res.json())
-        .then((data) => name = data);
-    return name;
+        .then((data) => {
+            name = data.username
+            email = data.mail
+        });
+    return { name, email }
 };
 
 //INPUT
@@ -71,15 +75,20 @@ chatForm.addEventListener("submit", (e) => {
 });
 
 async function addMessage() {
-    const isLogin = await getName()
-    if (isLogin.error) {
+    const isLogin = await getUser()
+
+    if (!isLogin.name) {
         window.location.href = '/login'
     } else {
+
+        const userInfo = await getUser()
         const newMsg = {
-            author: await getName(),
+            email: userInfo.email,
+            author: userInfo.name,
             date: `${new Date().toLocaleDateString()} - (${new Date().toLocaleTimeString()})`,
             text: document.getElementById("userMsg").value,
         };
+
         socket.emit("new-message", newMsg);
 
         document.getElementById("userMsg").value = ''

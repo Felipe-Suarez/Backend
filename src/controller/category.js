@@ -5,6 +5,8 @@ import { serviceHome } from '../services/home.js'
 import { serviceCategory } from '../services/category.js'
 import { isAdmin } from '../middleware/auth.js';
 
+import { CATEGORY_NAMES } from '../../config/index.js'
+
 route.get('/', async (req, res) => {
     const { userData, productsInfo } = await serviceHome(req.user?._id)
     const name = userData?.username.toUpperCase()
@@ -22,27 +24,33 @@ route.get('/', async (req, res) => {
 })
 
 route.get('/:categoryName', async (req, res) => {
-    const { userData, productsInfo } = await serviceHome(req.user?._id)
+    const { userData } = await serviceHome(req.user?._id)
     const name = userData?.username.toUpperCase()
     const veifyAdmin = await isAdmin(req)
 
+    const categoryNames = CATEGORY_NAMES
     const category = req.params.categoryName
-    const products = await serviceCategory(category)
 
-    let msg;
-    if (category === 'mates' || category === 'termos') {
-        msg = `mira los ${category} que tenemos para vos`
+    if (categoryNames.includes(category)) {
+        const products = await serviceCategory(category)
+
+        let msg;
+        if (category === 'mates' || category === 'termos') {
+            msg = `mira los ${category} que tenemos para vos`
+        } else {
+            msg = `mira las ${category} que tenemos para vos`
+        }
+
+        res.render('category', {
+            userInfo: userData,
+            username: name,
+            productsInfo: products,
+            userAdmin: veifyAdmin,
+            msg
+        })
     } else {
-        msg = `mira las ${category} que tenemos para vos`
+        res.render('error', { msg: `La categoria ${category} no existe` })
     }
-
-    res.render('category', {
-        userInfo: userData,
-        username: name,
-        productsInfo: products,
-        userAdmin: veifyAdmin,
-        msg
-    })
 })
 
 export default route
