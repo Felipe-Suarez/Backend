@@ -14,7 +14,6 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/products.css" />
     <link rel="stylesheet" href="/css/cart.css" />
     <link rel="stylesheet" href="/css/chat.css" />
 
@@ -28,29 +27,52 @@
   <body>
     <%- include('partials/header.ejs'); %>
     <main>
-      <h2 class="main-title">Tu carrito</h2>
-      <div class="main-products">
-        <% if (cartInfo.length === 0) { %>
-        <h2 class="main-title">No hay productos en tu carrito</h2>
-        <% } %>
+      <div class="main-cart">
+        <div class="cart-container">
+          <h2 class="cart-title">Tu carrito</h2>
+          <% if (cartInfo.length === 0) { %>
+          <h2 class="main-title">No hay productos en tu carrito</h2>
+          <% } %>
 
-        <!-- SHOW PRODUCTS -->
-        <div class="product-container">
-          <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
-          <div class="product" name="<%=product.id%>">
-            <div class="product-img">
-              <img src="<%=product.thumbnail%>" />
+          <!-- SHOW PRODUCTS -->
+          <div class="product-container">
+            <% if (cartInfo.length > 0) { %> <% cartInfo.forEach(function(product){ %>
+            <div class="product" name="<%=product.id%>">
+              <div class="product-img-box">
+                <a href="/productos/<%=product.id%>"
+                  ><img class="product-img" src="<%=product.thumbnail%>"
+                /></a>
+              </div>
+              <div class="product-box">
+                <p class="product-title"><%=product.title%></p>
+                <span class="product-price">$ <%=product.price%></span>
+              </div>
+              <div class="product-qty-container">
+                <div class="product-qty-box">
+                  <button class="product-qty-btn btn-rest">-</button>
+                  <input
+                    class="product-qty"
+                    min="1"
+                    max="10"
+                    type="number"
+                    value="<%=product.qty%>"
+                  />
+                  <button class="product-qty-btn btn-sum">+</button>
+                  <div class="product-edit-confirm">
+                    <i class="bx bxs-check-square bx-sm"></i>
+                  </div>
+                </div>
+                <button class="product-btn">Eliminar del carrito</button>
+              </div>
             </div>
-            <div class="product-box">
-              <p class="product-box-title"><%=product.title%></p>
-              <span class="product-box-price">$ <%=product.price%></span>
-            </div>
-            <button class="product-btn">Eliminar del carrito</button>
+            <% }); %> <% } %>
           </div>
-          <% }); %> <% } %>
         </div>
         <% if (cartInfo.length > 0) { %>
-        <button class="cart-buy">Comprar</button>
+        <div class="cart-buy-container">
+          <span>Total:</span>
+          <button class="cart-buy">Comprar</button>
+        </div>
         <% } %>
       </div>
     </main>

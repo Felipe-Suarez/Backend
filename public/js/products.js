@@ -1,3 +1,5 @@
+const product = document.querySelectorAll('.product')
+
 const productBtn = document.querySelectorAll('.product-btn')
 const productContainer = document.querySelector('.product-container')
 
@@ -11,9 +13,9 @@ fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
 productContainer.addEventListener('click', (e) => {
 
     //ADD PRODUCTS IN CART
-    productBtn.forEach(btn => {
+    productBtn.forEach((btn, index) => {
         if (e.target === btn) {
-            const productId = e.target.parentElement.attributes.name.nodeValue
+            const productId = product[index].attributes.name.nodeValue
 
             fetch(`/api/cart/${cartId}/productos`, {
                 method: 'POST',
@@ -23,8 +25,14 @@ productContainer.addEventListener('click', (e) => {
                 body: JSON.stringify({
                     id: productId
                 })
-            }).then(() => { //IF USER IS LOGGED
-                if (cartId) alert('Producto agregado a tu carrito')
+            }).then(res => res.json()).then((data) => { //IF USER IS LOGGED
+                if (cartId) {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        alert(data.msg)
+                    }
+                }
                 else { window.location.href = '/login' }
             })
 
@@ -32,9 +40,9 @@ productContainer.addEventListener('click', (e) => {
     })
 
     // SEE PRODUCT DESCRIPTION
-    productDescription.forEach(btn => {
+    productDescription.forEach((btn, index) => {
         if (e.target === btn) {
-            const productId = e.target.parentElement.attributes.name.nodeValue
+            const productId = product[index].attributes.name.nodeValue
 
             window.location.href = `/productos/${productId}`
         }

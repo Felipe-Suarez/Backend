@@ -17,8 +17,24 @@ const serviceAddCartProducts = async (productID, cartID) => {
     const producto = await productosDao.getById(productID)
     const carrito = await carritosDao.getById(cartID)
 
-    carrito.productos.push(producto)
+    const isInCart = () => carrito.productos.find(product => product.id === productID)
+
+    let productInCart = isInCart()
+
+    if (productInCart) {
+        if (productInCart.qty > 0 && productInCart.qty < 10) {
+            productInCart.qty = productInCart.qty + 1
+        } else {
+            return false
+        }
+    } else {
+        carrito.productos.push(producto)
+        productInCart = isInCart()
+        productInCart.qty = 1
+    }
+
     await carritosDao.update(carrito)
+    return true
 }
 
 const serviceDeleteCartProducts = async (id, productID) => {

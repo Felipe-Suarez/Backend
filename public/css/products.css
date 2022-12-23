@@ -62,6 +62,11 @@
   cursor: pointer;
 }
 
+.product-icon {
+  position: relative;
+  top: 5px;
+}
+
 .product-btn::before {
   content: "";
   position: absolute;

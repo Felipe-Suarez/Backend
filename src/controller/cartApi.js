@@ -29,8 +29,8 @@ route.post('/:id/productos', async (req, res) => {
     const cartID = req.params.id;
 
     if (validation({ productID })) {
-        await serviceAddCartProducts(productID, cartID)
-        res.end()
+        const addProduct = await serviceAddCartProducts(productID, cartID)
+        addProduct ? res.json({ msg: 'Producto agregado a tu carrito' }) : res.json({ error: 'No se puede agregar mas cantidad de este producto al carrito' })
     } else {
         res.redirect('/')
     }

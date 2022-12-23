@@ -14,7 +14,7 @@ route.get('/:id', async (req, res) => {
     } else {
 
         const veifyAdmin = await isAdmin(req)
-        res.render('product', {
+        res.render('productDetail', {
             userInfo: req.user,
             userAdmin: veifyAdmin,
             productInfo: product

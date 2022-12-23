@@ -224,12 +224,6 @@
 
 /* PRODUCT */
 
-.product-delete-icon {
-  position: absolute;
-  left: 20px;
-  top: 10px;
-}
-
 .product-box {
   pointer-events: none;
   height: unset;

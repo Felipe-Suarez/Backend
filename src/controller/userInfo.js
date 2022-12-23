@@ -29,7 +29,7 @@ route.get('/name', async (req, res) => {
         }
         res.json(dtoUser)
     } else {
-        res.json({ error: 'falta login' })
+        res.json({ error: 'Login requerido' })
     }
 })
 

@@ -1,7 +1,119 @@
+.main-cart {
+  height: 80vh;
+  position: relative;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  margin: 20px 0;
+  padding: 20px 0 0 0;
+  max-height: 60vh;
+}
+
+.cart-title {
+  border-bottom: 1px solid #000;
+  text-align: center;
+  margin: 0;
+}
+
+/* PRODUCT */
+
+.product-container {
+  overflow-y: auto;
+}
+
+.product {
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.product-img-box {
+}
+
+.product-img {
+  width: 100px;
+  object-fit: contain;
+}
+
+.product-box {
+  margin-left: 5px;
+  flex-grow: 1;
+  max-width: 40%;
+}
+
+.product-title {
+  margin: 5px 0;
+}
+
+.product-qty-container {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  gap: 15px;
+}
+
+.product-qty-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #000;
+  position: relative;
+  margin-right: 30px;
+}
+
+.product-qty {
+  width: 30%;
+  text-align: center;
+  border: none;
+}
+
+.product-qty:focus {
+  outline: none;
+}
+
+.product-qty-btn {
+  background-color: #fff;
+  border: none;
+}
+
+.product-edit-confirm {
+  color: #0f0;
+  position: absolute;
+  top: 0;
+  right: -30px;
+  z-index: 100;
+  cursor: pointer;
+  display: none;
+}
+
+.product-btn {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+/* BUY INFO */
+
+.cart-buy-container {
+  position: absolute;
+  bottom: 0;
+  border-top: 2px solid #000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25%;
+  padding: 10px 0;
+}
+
 .cart-buy {
-  display: block;
   width: 150px;
-  margin: 0 auto 20px;
 }
 
 .cart-buy {
@@ -26,4 +138,67 @@
 .cart-buy:active {
   transform: translate(0);
   box-shadow: none;
+}
+
+/* MEDIAQUERYS */
+
+@media screen and (min-width: 500px) {
+  .product {
+    padding: 10px;
+  }
+
+  .product-box {
+    margin-left: 15px;
+    max-width: unset;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .cart-container {
+    margin: 20px 10% 0;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .product-qty-container {
+    flex-direction: row;
+    max-width: 30%;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .product-qty-box {
+    max-width: 40%;
+    font-size: 20px;
+  }
+
+  .product-btn {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .product-qty-btn {
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cart-container {
+    margin: 20px 20% 0;
+    width: 60%;
+  }
+}
+
+/* REMOVE INPUT TYPE NUMBER ARROWS */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
