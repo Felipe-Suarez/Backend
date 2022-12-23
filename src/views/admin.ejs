@@ -63,6 +63,11 @@
               <label class="form-box-label">Categoria:</label>
               <i class="form-box-i select-i"></i>
             </div>
+
+            <div class="form-box-textarea form-box">
+              <textarea required class="form-textarea"></textarea>
+              <label class="form-box-label label-textarea">Descripcion:</label>
+            </div>
           </div>
           <div class="form-btn-box">
             <input class="form-btn" type="submit" value="Agregar" /><i class="form-btn-i"></i>
@@ -123,11 +128,32 @@
                   <i class="bx bxs-x-square bx-sm product-edit-cancel"></i>
                 </div>
               </div>
+
+              <div class="product-box-description">
+                <span>Ver descripcion</span>
+                <i class="bx bx-chevrons-right"></i>
+              </div>
             </div>
 
             <button class="product-btn">
               <i class="bx bx-trash-alt bx-sm product-delete-icon"></i> Eliminar producto
             </button>
+          </div>
+
+          <div class="product-webkit">
+            <div class="product-webkit-close">
+              <i class="bx bx-x bx-md"></i>
+            </div>
+
+            <div class="product-webkit-box">
+              <h4 class="product-webkit-title">Descripcion del producto: <%= product.title %></h4>
+              <textarea class="product-webkit-text"><%= product.detail %></textarea>
+
+              <div class="product-webkit-buttons">
+                <button class="product-description-cancel description-btns">Cancelar</button>
+                <button class="product-description-save description-btns">Guardar</button>
+              </div>
+            </div>
           </div>
           <% }); %> <% } %>
         </div>

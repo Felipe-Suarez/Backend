@@ -4,6 +4,15 @@ const productBtn = document.querySelectorAll('.product-btn')
 const productContainer = document.querySelector('.product-container')
 const productBox = document.querySelectorAll('.product-box-position')
 
+const productDescription = document.querySelectorAll('.product-box-description')
+const productWebkit = document.querySelectorAll('.product-webkit')
+const productWebkitText = document.querySelectorAll('.product-webkit-text')
+const webkitClose = document.querySelectorAll('.product-webkit-close')
+const descriptionSaveBtn = document.querySelectorAll('.product-description-save')
+const descriptionCancelBtn = document.querySelectorAll('.product-description-cancel')
+
+const product = document.querySelectorAll('.product')
+
 // DELETE
 const deleteProduct = (e) => {
     productBtn.forEach(btn => {
@@ -44,9 +53,7 @@ const saveConfirm = (e, editConfirm, editBtn, saveBox, box, productInput) => {
 
         fetch(`/api/products/${productId}`, {
             method: 'PUT',
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: useBody(indentifyInput, productInput)
         }).then(res => res.json()).then(data => {
             if (data?.error) {
@@ -86,9 +93,69 @@ const editProduct = (e) => {
     })
 }
 
+const closeDescription = (e) => {
+    webkitClose.forEach((btn, index) => {
+        if (e.target === btn) {
+            productWebkit[index].style = 'display: none'
+            document.body.style = 'overflow-y: auto'
+        }
+    })
+}
+
+const saveDescription = (e) => {
+    descriptionSaveBtn.forEach((btn, index) => {
+        if (e.target === btn) {
+
+            const descriptionText = productWebkitText[index].value
+
+            const productId = product[index].attributes.name.nodeValue
+
+            fetch(`/api/products/${productId}`, {
+                method: 'put',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ detail: descriptionText })
+            }).then(res => res.json()).then(data => {
+                if (data?.error) {
+                    alert(data.error)
+                    window.location.href = '/admin'
+                } else {
+                    alert(data)
+                }
+            })
+        }
+    })
+}
+
+const cancelDescription = (e, productId) => {
+    descriptionCancelBtn.forEach((btn, index) => {
+        const productId = product[index].attributes.name.nodeValue
+
+        if (e.target === btn) {
+            fetch(`/api/products/${productId}`, {
+            }).then(res => res.json()).then(data => {
+                productWebkitText[index].value = data.detail
+            })
+        }
+    })
+}
+
+const showDescription = (e) => {
+    productDescription.forEach((btn, index) => {
+        if (e.target === btn) {
+            productWebkit[index].style = 'display: inline-block'
+            document.body.style = 'overflow-y: hidden'
+        }
+    })
+
+    saveDescription(e)
+    cancelDescription(e)
+    closeDescription(e)
+}
+
 productContainer.addEventListener('click', (e) => {
     deleteProduct(e)
     editProduct(e)
+    showDescription(e)
 })
 
 // CHAT

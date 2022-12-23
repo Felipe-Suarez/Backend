@@ -13,7 +13,6 @@ productContainer.addEventListener('click', (e) => {
     //ADD PRODUCTS IN CART
     productBtn.forEach(btn => {
         if (e.target === btn) {
-            console.log(btn)
             const productId = e.target.parentElement.attributes.name.nodeValue
 
             fetch(`/api/cart/${cartId}/productos`, {

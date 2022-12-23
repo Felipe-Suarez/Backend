@@ -189,6 +189,39 @@
   left: 80%;
 }
 
+.form-box-textarea {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.form-textarea {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.form-textarea:focus {
+  border: 2px solid #5264ae;
+}
+
+.form-textarea:focus ~ .label-textarea,
+.form-textarea:valid ~ .label-textarea {
+  transform: translateY(-50px);
+  font-size: 20px;
+  color: #5264ae;
+}
+
+.label-textarea {
+  top: 0;
+  bottom: unset;
+  transition: all 0.3s;
+}
+
 /* PRODUCT */
 
 .product-delete-icon {
@@ -201,6 +234,7 @@
   pointer-events: none;
   height: unset;
   margin-left: 10px;
+  width: 95%;
 }
 
 .product-box-position {
@@ -232,6 +266,7 @@
   padding: 5px;
   width: 70%;
   pointer-events: all;
+  border-bottom: 1px solid #000;
 }
 
 .product-box-price {
@@ -257,11 +292,100 @@
   pointer-events: all;
 }
 
+.product-box-description {
+  width: max-content;
+  margin: 10px auto;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.product-box-description span {
+  position: relative;
+  top: -2px;
+  pointer-events: none;
+}
+
+.product-webkit {
+  display: none;
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+}
+
+.product-webkit-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  background-color: #fffa;
+}
+
+.product-webkit-title {
+  margin-top: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.product-webkit-text {
+  margin-top: 30px;
+  width: 80%;
+  height: 50%;
+  resize: none;
+  border: none;
+  box-shadow: 0 5px 10px #000a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-webkit-text:focus {
+  box-shadow: 0 0 1px #000a;
+  transform: translateY(5px);
+  transition: 0.3s all;
+}
+
+.product-webkit-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.product-webkit-buttons {
+  margin-top: 30px;
+}
+
+.product-description-cancel {
+  background-color: #d00;
+}
+.product-description-save {
+  background-color: #0d0;
+}
+
+.description-btns {
+  margin: 0 5px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 /* MEDIA QUERYS */
 
 @media screen and (min-width: 650px) {
   .form-container {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .product-webkit-text {
+    width: 50%;
+    height: 50%;
   }
 }
