@@ -30,7 +30,9 @@
     <%- include('partials/header.ejs'); %>
     <main>
       <h2 class="main-title">Administración</h2>
-      <button id="vaciarChat">Vaciar Chat</button>
+
+      <button id="clearChat">Vaciar Chat <i class="bx bx-message-x"></i></button>
+
       <div class="main-products">
         <!-- ADD PRODUCTS -->
         <form class="form" action="/api/products" method="POST">
@@ -65,7 +67,7 @@
             </div>
 
             <div class="form-box-textarea form-box">
-              <textarea required class="form-textarea"></textarea>
+              <textarea required class="form-textarea" name="detail"></textarea>
               <label class="form-box-label label-textarea">Descripcion:</label>
             </div>
           </div>

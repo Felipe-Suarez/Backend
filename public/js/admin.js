@@ -159,13 +159,13 @@ productContainer.addEventListener('click', (e) => {
 })
 
 // CHAT
-const vaciarChat = document.getElementById('vaciarChat')
+const clearChat = document.getElementById('clearChat')
 
 let chatHTML = `<div class='chat-info-msg'>
                       <span>El chat se encuentra vacio en este momento<span/>
                   <div/>`;
 
-vaciarChat.addEventListener('click', async () => {
+clearChat.addEventListener('click', async () => {
     fetch('/api/chat', { method: 'delete' })
         .then(alert('Chat vaciado correctamente'))
         .then(document.getElementById("messages").innerHTML = chatHTML)
