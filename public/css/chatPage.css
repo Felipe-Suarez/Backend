@@ -1,22 +1,24 @@
+.chat-icon,
+.chat-expand-icon,
+.chat-close-icon {
+  display: none;
+}
+
+.main-chat {
+  min-height: 70vh;
+}
+
 .chat-container {
-  width: 350px;
+  width: 90%;
   height: 500px;
-  position: fixed;
   border: 2px solid #000;
   box-sizing: border-box;
   background-color: #fff;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  z-index: 200;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 10px;
-  transform: translateY(100%);
-  transition: transform 0.2s;
-  box-shadow: 0 5px 5px #000a;
 }
 
 .chat-title-box {
@@ -29,22 +31,6 @@
   padding: 20px 0;
   margin: 0;
   font-size: 30px;
-}
-
-.chat-close-icon {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  margin: 20px 0;
-  cursor: pointer;
-}
-
-.chat-expand-icon {
-  position: absolute;
-  top: 6px;
-  left: 10px;
-  margin: 20px 0;
-  cursor: pointer;
 }
 
 .chat {
@@ -68,20 +54,6 @@
   cursor: pointer;
 }
 
-.chat-icon {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #fff;
-  border: 1px solid #000;
-  padding: 5px;
-  border-radius: 50%;
-  box-shadow: 0 5px 5px #000a;
-  transition: transform 0.2s;
-  cursor: pointer;
-  z-index: 300;
-}
-
 .msg-container {
   padding: 20px 0 10px 5px;
   position: relative;
@@ -89,19 +61,20 @@
 }
 
 .msg-author {
-  float: left;
   margin: 0 5px;
+  float: left;
 }
 
 .msg-text {
-  margin: 0 10px 0 5px;
+  margin: 0 20px 0 5px;
   word-wrap: break-word;
+  line-height: 1.2;
 }
 
 .msg-date {
   position: absolute;
   top: 0;
-  right: 5px;
+  right: 20px;
   font-size: 15px;
   color: #000a;
 }
@@ -116,9 +89,18 @@
   font-size: 20px;
 }
 
+.chat-link {
+  width: max-content;
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  margin: 30px auto 0;
+  font-size: 20px;
+}
+
 @media screen and (min-width: 600px) {
   .chat-container {
-    left: unset;
-    right: 10px;
+    width: 70%;
   }
 }

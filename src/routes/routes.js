@@ -14,6 +14,7 @@ import category from '../controller/category.js'
 import productDetail from '../controller/productDetail.js'
 import logout from '../controller/logout.js'
 import admin from '../controller/admin.js'
+import chat from '../controller/chat.js'
 import cart from '../controller/cart.js'
 import userInfo from '../controller/userInfo.js'
 import token from '../controller/token.js'
@@ -33,6 +34,7 @@ router
     .use('/productos', productDetail)
     .use('/logout', logout)
     .use('/admin', admin)
+    .use('/chat', chat)
     .use('/cart', cart)
     .use('/userInfo', userInfo)
     .use('/token', token)

@@ -1,7 +1,7 @@
 import { Router } from "express";
 const route = Router()
 
-import { auth, isAdmin } from '../middleware/auth.js'
+import { auth, isAdmin, admin } from '../middleware/auth.js'
 
 import { PORT, NODE_ENV, PERS, MAX_AGE } from '../../config/index.js'
 
@@ -14,7 +14,7 @@ const config = {
     PORT, NODE_ENV, PERS, ageMinutes
 }
 
-route.get('/', auth, async (req, res) => {
+route.get('/', auth, admin, async (req, res) => {
     const veifyAdmin = await isAdmin(req)
 
     res.render('config', {

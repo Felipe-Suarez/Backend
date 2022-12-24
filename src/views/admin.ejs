@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/products.css" />
     <link rel="stylesheet" href="/css/admin.css" />
     <link rel="stylesheet" href="/css/mediaProducts.css" />
-    <link rel="stylesheet" href="/css/chat.css" />
+    <link rel="stylesheet" href="/css/chatPage.css" />
 
     <!-- SCRIPT -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -32,6 +32,7 @@
       <h2 class="main-title">Administración</h2>
 
       <button id="clearChat">Vaciar Chat <i class="bx bx-message-x"></i></button>
+      <%- include('partials/chat.ejs'); %>
 
       <div class="main-products">
         <!-- ADD PRODUCTS -->
@@ -161,6 +162,6 @@
         </div>
       </div>
     </main>
-    <%- include('partials/chat.ejs'); %> <%- include('partials/footer.ejs'); %>
+    <%- include('partials/footer.ejs'); %>
   </body>
 </html>

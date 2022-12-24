@@ -26,11 +26,7 @@
     <%} %>
   </div>
   <ul class="nav-list">
-    <% if (userInfo) {%> <% if (userAdmin) {%>
-    <li class="nav-list-item">
-      <a href="/admin"><i class="bx bxs-universal-access"></i> Administracion</a>
-    </li>
-    <%} %>
+    <% if (userInfo) {%>
     <li class="nav-list-item">
       <a href="/"><i class="bx bxs-home"></i> Inicio</a>
     </li>
@@ -41,12 +37,23 @@
       <a href="/userInfo"><i class="bx bx-user"></i> Informacion del perfil</a>
     </li>
     <li class="nav-list-item">
+      <a href="/chat"><i class="bx bxs-chat"></i> Chat</a>
+    </li>
+    <% if (userAdmin) {%>
+    <li class="nav-list-item">
+      <a href="/admin"><i class="bx bxs-universal-access"></i> Administracion</a>
+    </li>
+    <li class="nav-list-item">
       <a href="/config"><i class="bx bxs-cog"></i> Ver configuracion</a>
     </li>
+    <%} %>
     <li class="nav-list-item">
       <a href="/logout"><i class="bx bx-log-out"></i> Cerrar sesion</a>
     </li>
     <%} %> <% if (!userInfo) {%>
+    <li class="nav-list-item">
+      <a href="/chat"><i class="bx bxs-chat"></i> Chat</a>
+    </li>
     <li class="nav-list-item">
       <a href="/login"><i class="bx bx-log-in"></i> Login</a>
     </li>

@@ -7,34 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- TITLE -->
-    <title>Configuracion</title>
+    <title>Chat</title>
 
     <!-- LINK -->
     <%- include('partials/icon.ejs'); %>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/config.css" />
-    <link rel="stylesheet" href="/css/chat.css" />
+    <link rel="stylesheet" href="/css/chatPage.css" />
 
     <!-- SCRIPT -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/js/menu.js" type="module" defer></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/chat.js" type="module" defer></script>
+    <script src="/js/chatUserMsg.js" type="module" defer></script>
   </head>
   <body>
     <%- include('partials/header.ejs'); %>
-    <main class="main-config">
-      <div class="config-container">
-        <ul class="config-list">
-          <li class="config-item">Deploy: <%= config.NODE_ENV %></li>
-          <li class="config-item">Puerto: <%= config.PORT %></li>
-          <li class="config-item">Persistencia: <%= config.PERS %></li>
-          <li class="config-item">Expiracion de la sesion: <%= config.ageMinutes %> min</li>
-        </ul>
+    <main class="main-chat">
+      <div class="chat-link">
+        <a href="/chat">Ver todos los mensajes</a>
+      </div>
+      <div class="chat-container">
+        <div class="chat-title-box">
+          <h4 class="chat-title">Mis mensajes</h4>
+        </div>
+        <div class="chat" id="messages"></div>
       </div>
     </main>
-    <%- include('partials/chat.ejs'); %> <%- include('partials/footer.ejs'); %>
+    <%- include('partials/footer.ejs'); %>
   </body>
 </html>

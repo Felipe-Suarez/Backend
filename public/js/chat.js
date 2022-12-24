@@ -1,10 +1,7 @@
-const closeBtn = document.querySelector('.chat-title-icon');
+const closeBtn = document.querySelector('.chat-close-icon');
 const openBtn = document.querySelector('.chat-icon');
 
 const chatContainer = document.querySelector('.chat-container')
-
-const header = document.querySelector('header')
-const main = document.querySelector('main')
 
 openBtn.addEventListener('click', () => {
     openBtn.style = 'transform: translateY(150%)'
@@ -37,7 +34,7 @@ function renderChat(data) {
         chatHTML = data
             .map((elem, index) => {
                 return `<div id='${index}' class='msg-container'>
-                            <strong class='msg-author'>${elem.author}:</strong>
+                            <strong class='msg-author'>${elem.author.toUpperCase()}:</strong>
                             <p class='msg-text'>${elem.text}</p> 
                             <span class="msg-date">[${elem.date}]<span>
                         </div>`;
