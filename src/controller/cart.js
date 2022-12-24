@@ -30,8 +30,10 @@ route.get('/buy', async (req, res) => {
         username: userData.username,
         mail: userData.email,
         products: cart.productos,
+        id: cart.id
     }
 
+    console.log(data)
     await newPurchase(data)
     // await sendMsg(userData.phone)
 

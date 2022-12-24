@@ -15,7 +15,7 @@ const transporter = createTransport({
 
 //WHEN USER IS REGISTER
 const sendMail = async (data) => {
-
+    console.log(data)
     const emailContent = {
         from: 'Mi primer Email',
         to: MAIL,
@@ -46,9 +46,10 @@ const newPurchase = async (data) => {
     const user = data.username;
     const mail = data.mail;
     const products = data.products;
+    const cartId = data.id;
     const productosArr = products.map(product => {
         return (
-            `<li>Producto: ${product.title}, Precio: ${product.price}</li>`
+            `<li>Producto: ${product.title}, Precio: ${product.price}. x${product.qty}</li>`
         )
     });
 
@@ -58,8 +59,10 @@ const newPurchase = async (data) => {
         subject: `Nuevo Pedido de ${user}`,
         text: "Hello coders",
         html: `
-              <h3>Nombre: ${user}</h3>
-              <p>Email: ${mail}</p>
+              <h2>Nombre: ${user}</h2>
+              <h3>Email: ${mail}</h3>
+              <h4>Numero de orden: ${cartId}</h4>
+              <h5>Fecha: ${new Date()}</h5>
               <ul>Productos: ${productosArr.join(' ')}</ul>      
               `,
     };

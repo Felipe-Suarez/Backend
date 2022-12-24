@@ -38,7 +38,7 @@ route.get('/data', async (req, res) => {
         const { myCart } = await serviceUser(req.user?._id)
         res.send(myCart)
     } else {
-        res.redirect('/loginError')
+        res.json({ error: 'Login requerido' })
     }
 })
 

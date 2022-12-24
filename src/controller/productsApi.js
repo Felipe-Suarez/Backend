@@ -3,7 +3,13 @@ const route = Router()
 
 import { auth } from '../middleware/auth.js'
 
-import { serviceGetProducts, serviceGetProduct, serviceProductSave, serviceProductUpdate, serviceDeleteProduct } from '../services/productsApi.js'
+import {
+    serviceGetProducts,
+    serviceGetProduct,
+    serviceProductSave,
+    serviceProductUpdate,
+    serviceDeleteProduct
+} from '../services/productsApi.js'
 
 import { validation } from '../../utils/validation.js'
 

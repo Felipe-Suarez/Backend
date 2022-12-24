@@ -1,6 +1,4 @@
 // DELETE PRODUCT FROM CART
-let cartId;
-
 const product = document.querySelectorAll('.product')
 
 const productBtn = document.querySelectorAll('.product-btn')
@@ -11,7 +9,27 @@ const productQty = document.querySelectorAll('.product-qty')
 const btnRest = document.querySelectorAll('.btn-rest')
 const btnConfirm = document.querySelectorAll('.product-edit-confirm')
 
-fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
+const totalPrice = document.querySelector('.cart-buy-total')
+
+let cartId;
+let cartProducts;
+
+const updatePrice = () => {
+    let price = 0;
+    cartProducts.forEach(product => price += product.price * product.qty)
+    totalPrice.textContent = price
+}
+
+(async function () {
+    await fetch('/userInfo/data').then(res => res.json()).then(data => {
+        cartId = data.id
+        cartProducts = data.productos
+    })
+
+    updatePrice()
+})()
+
+// totalPrice.textContent = ''
 
 productContainer.addEventListener('click', async (e) => {
     productBtn.forEach((btn, index) => {
@@ -50,7 +68,10 @@ productContainer.addEventListener('click', async (e) => {
                         id: productId,
                         qty: input.value
                     })
-                }).then(res => res.json()).then(data => data.error && alert(data.error))
+                }).then(res => res.json()).then(
+                    data => data.error && alert(data.error) || (window.location.href = '/cart')
+                )
+                updatePrice()
                 btnConfirm[index].style = 'display: none'
             } else {
                 alert('No se pueden agregar mas cantidad de este producto')

@@ -60,4 +60,11 @@ const serviceDeleteCartProducts = async (id, productID) => {
     }
 }
 
-export { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceUpdateCartProduct, serviceDeleteCartProducts }
+export {
+    serviceDeleteCart,
+    serviceGetCarts,
+    serviceGetCartProducts,
+    serviceAddCartProducts,
+    serviceUpdateCartProduct,
+    serviceDeleteCartProducts
+}

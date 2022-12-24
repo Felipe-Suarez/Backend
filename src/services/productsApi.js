@@ -19,4 +19,10 @@ const serviceDeleteProduct = async (productId) => {
     await productosDao.delete(productId)
 }
 
-export { serviceGetProducts, serviceGetProduct, serviceProductSave, serviceProductUpdate, serviceDeleteProduct }
+export {
+    serviceGetProducts,
+    serviceGetProduct,
+    serviceProductSave,
+    serviceProductUpdate,
+    serviceDeleteProduct
+}

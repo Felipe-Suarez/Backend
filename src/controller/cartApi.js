@@ -4,16 +4,25 @@ const route = Router();
 
 import { auth } from '../middleware/auth.js'
 
-import { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceUpdateCartProduct, serviceDeleteCartProducts } from '../services/cartApi.js'
+import {
+    serviceDeleteCart,
+    serviceGetCarts,
+    serviceGetCartProducts,
+    serviceAddCartProducts,
+    serviceUpdateCartProduct,
+    serviceDeleteCartProducts
+} from '../services/cartApi.js'
 
 import { validation } from '../../utils/validation.js'
 
 route.use(auth)
 
-route.delete('/:id', async (req, res) => {
-    const id = req.params.id;
-    res.json(await serviceDeleteCart(id))
-})
+route.delete('/:id',
+    async (req,
+        res) => {
+        const id = req.params.id;
+        res.json(await serviceDeleteCart(id))
+    })
 
 route.get('/', async (req, res) => {
     res.json(await serviceGetCarts())

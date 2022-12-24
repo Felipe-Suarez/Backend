@@ -5,10 +5,10 @@ const productContainer = document.querySelector('.product-container')
 
 const productDescription = document.querySelectorAll('.product-description')
 
-let cartId = '';
+let cartId;
 
 //GET CART ID
-fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
+fetch('/userInfo/data').then(res => res.json()).then(data => data.id && (cartId = data.id))
 
 productContainer.addEventListener('click', (e) => {
 
@@ -17,22 +17,23 @@ productContainer.addEventListener('click', (e) => {
         if (e.target === btn) {
             const productId = product[index].attributes.name.nodeValue
 
-            fetch(`/api/cart/${cartId}/productos`, {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    id: productId
-                })
-            }).then(res => res.json()).then((data) => { //IF USER IS LOGGED
-                if (cartId) {
-                    if (data.error) {
-                        alert(data.error)
-                    } else {
-                        alert(data.msg)
+            if (cartId) {
+                fetch(`/api/cart/${cartId}/productos`, {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        id: productId
+                    })
+                }).then(res => res.json()).then((data) => { //IF USER IS LOGGED
+                    if (cartId) {
+                        if (data.error) {
+                            alert(data.error)
+                        } else {
+                            alert(data.msg)
+                        }
                     }
-                }
-                else { window.location.href = '/login' }
-            })
+                })
+            } else { window.location.href = '/login' }
 
         }
     })
