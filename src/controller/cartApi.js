@@ -4,7 +4,7 @@ const route = Router();
 
 import { auth } from '../middleware/auth.js'
 
-import { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceDeleteCartProducts } from '../services/cartApi.js'
+import { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceUpdateCartProduct, serviceDeleteCartProducts } from '../services/cartApi.js'
 
 import { validation } from '../../utils/validation.js'
 
@@ -34,6 +34,15 @@ route.post('/:id/productos', async (req, res) => {
     } else {
         res.redirect('/')
     }
+})
+
+route.put('/:id/productos', async (req, res) => {
+    const cartID = req.params.id;
+    const product = req.body;
+
+    const addProduct = await serviceUpdateCartProduct(cartID, product)
+
+    addProduct ? res.json({ msl: 'Quantity updated' }) : res.json({ error: 'Ha ocurrido un error' })
 })
 
 route.delete('/:id/productos/:id_prod', async (req, res) => {

@@ -19,9 +19,7 @@ productContainer.addEventListener('click', (e) => {
 
             fetch(`/api/cart/${cartId}/productos`, {
                 method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     id: productId
                 })

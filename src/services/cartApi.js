@@ -23,7 +23,7 @@ const serviceAddCartProducts = async (productID, cartID) => {
 
     if (productInCart) {
         if (productInCart.qty > 0 && productInCart.qty < 10) {
-            productInCart.qty = productInCart.qty + 1
+            productInCart.qty = Number(productInCart.qty) + 1
         } else {
             return false
         }
@@ -37,6 +37,19 @@ const serviceAddCartProducts = async (productID, cartID) => {
     return true
 }
 
+const serviceUpdateCartProduct = async (cartID, bodyProduct) => {
+    const carrito = await carritosDao.getById(cartID)
+    const producto = carrito.productos.find(product => product.id === bodyProduct.id)
+
+    if (bodyProduct.qty >= 1 && bodyProduct.qty <= 10) {
+        producto.qty = bodyProduct.qty
+
+        await carritosDao.update(carrito)
+        return true
+    }
+    return false
+}
+
 const serviceDeleteCartProducts = async (id, productID) => {
     const carrito = await carritosDao.getById(id)
     const index = carrito.productos.findIndex(item => item.id == productID)
@@ -47,4 +60,4 @@ const serviceDeleteCartProducts = async (id, productID) => {
     }
 }
 
-export { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceDeleteCartProducts }
+export { serviceDeleteCart, serviceGetCarts, serviceGetCartProducts, serviceAddCartProducts, serviceUpdateCartProduct, serviceDeleteCartProducts }

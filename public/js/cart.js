@@ -15,10 +15,9 @@ fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
 
 productContainer.addEventListener('click', async (e) => {
     productBtn.forEach((btn, index) => {
+        //BORRAR PRODUCTO
         if (e.target === btn) {
-
             const productId = product[index].attributes.name.nodeValue
-
             fetch(`/api/cart/${cartId}/productos/${productId}`, { method: 'DELETE' })
                 .then(alert('Producto eliminado del carrito'))
                 .then(window.location.href = "/cart")
@@ -26,27 +25,37 @@ productContainer.addEventListener('click', async (e) => {
     })
 
     productQty.forEach((input, index) => {
+        //SUMAR CANTIDAD
         if (e.target === btnSum[index]) {
             if (input.value < 10) {
                 input.value = ++input.value
                 btnConfirm[index].style = 'display: block'
             }
         }
+        //RESTAR CANTIDAD
         if (e.target === btnRest[index]) {
             if (input.value > 1) {
                 input.value = --input.value
                 btnConfirm[index].style = 'display: block'
             }
         }
-        // if (e.target === btnConfirm[index]) {
-        //     const productId = product[index].attributes.name.nodeValue
-
-        //     fetch(`/api/cart/${cartId}/productos`, {
-        //         method: 'post',
-        //         body: JSON.stringify({ qty: input.value })
-        //     }).then(res => res.json()).then(data => data.error && alert(data.error))
-        //     btnConfirm[index].style = 'display: none'
-        // }
+        // GUARDAR CANTIDAD 
+        if (e.target === btnConfirm[index]) {
+            if (input.value >= 1 && input.value <= 10) {
+                const productId = product[index].attributes.name.nodeValue
+                fetch(`/api/cart/${cartId}/productos`, {
+                    method: 'put',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        id: productId,
+                        qty: input.value
+                    })
+                }).then(res => res.json()).then(data => data.error && alert(data.error))
+                btnConfirm[index].style = 'display: none'
+            } else {
+                alert('No se pueden agregar mas cantidad de este producto')
+            }
+        }
     })
 })
 
