@@ -1,5 +1,7 @@
 import { indentifyInput, useBody, resetValue } from '../js/adminUtils.js'
 
+const product = document.querySelectorAll('.product')
+
 const productBtn = document.querySelectorAll('.product-btn')
 const productContainer = document.querySelector('.product-container')
 const productBox = document.querySelectorAll('.product-box-position')
@@ -10,8 +12,6 @@ const productWebkitText = document.querySelectorAll('.product-webkit-text')
 const webkitClose = document.querySelectorAll('.product-webkit-close')
 const descriptionSaveBtn = document.querySelectorAll('.product-description-save')
 const descriptionCancelBtn = document.querySelectorAll('.product-description-cancel')
-
-const product = document.querySelectorAll('.product')
 
 // DELETE
 const deleteProduct = (e) => {

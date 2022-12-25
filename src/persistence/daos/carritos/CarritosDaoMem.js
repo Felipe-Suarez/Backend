@@ -2,10 +2,10 @@ import ContenedorMemoria from '../../contenedores/ContenedorMemoria.js';
 
 class CarritosDaoMem extends ContenedorMemoria {
 
-    async save(userId) {
+    async save(userId, email) {
         if (userId) {
             const newUserId = JSON.parse(JSON.stringify(userId))
-            let obj = { userId: newUserId, productos: [] }
+            let obj = { userId: newUserId, productos: [], email, date: new Date() }
             const data = await super.save(obj)
             return data
         }

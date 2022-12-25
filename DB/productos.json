@@ -1,14 +1,10 @@
 [
   {
-    "title": "asfd",
-    "price": "234",
-    "thumbnail": "asdf",
+    "title": "3",
+    "price": "3",
+    "thumbnail": "2",
+    "category": "termos",
+    "detail": "3",
     "id": 1
-  },
-  {
-    "title": "asdf",
-    "price": "234",
-    "thumbnail": "234",
-    "id": 2
   }
 ]

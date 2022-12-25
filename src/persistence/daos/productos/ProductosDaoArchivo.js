@@ -18,6 +18,8 @@ class ProductosDaoArchivo extends ContenedorArchivo {
             title: obj.title || oldObj.title,
             price: obj.price || oldObj.price,
             thumbnail: obj.thumbnail || oldObj.thumbnail,
+            detail: obj.detail || oldObj.detail,
+            category: obj.category || oldObj.category,
             id: parseInt(obj.id),
         }
 

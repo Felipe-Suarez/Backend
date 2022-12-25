@@ -48,15 +48,13 @@
       </div>
 
       <div>
-        <% if (productsInfo.length === 0) { %>
-        <h2 class="main-title">No hay productos disponibles</h2>
-        <% } %>
-
-        <!-- SHOW PRODUCTS -->
+        <% if (productsInfo.length > 0) { %>
         <div class="main-promotion">
           <h2 id="mainPromotion" class="main-title">Productos en promocion!!</h2>
           <a href="#mainPromotion"><i class="bx bx-chevrons-down bx-md promotion-icon"></i></a>
         </div>
+        <% } %>
+        <!-- SHOW PRODUCTS -->
         <div class="product-container">
           <% if (productsInfo.length > 0) { %> <% productsInfo.forEach(function(product){ %>
 

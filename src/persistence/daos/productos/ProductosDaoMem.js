@@ -15,6 +15,8 @@ class ProductosDaoMem extends ContenedorMemoria {
                 title: obj.title || oldObj.title,
                 price: obj.price || oldObj.price,
                 thumbnail: obj.thumbnail || oldObj.thumbnail,
+                detail: obj.detail || oldObj.detail,
+                category: obj.category || oldObj.category,
                 id: parseInt(obj.id),
             }
             return super.update(newObj, index)

@@ -1,0 +1,18 @@
+[
+  {
+    "username": "felipe",
+    "id": 1,
+    "products": [
+      {
+        "title": "3",
+        "price": "3",
+        "thumbnail": "2",
+        "category": "termos",
+        "detail": "3",
+        "id": 1,
+        "qty": "3"
+      }
+    ],
+    "date": "2022-12-25T20:01:38.460Z"
+  }
+]
