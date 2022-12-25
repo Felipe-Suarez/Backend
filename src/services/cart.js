@@ -1,6 +1,7 @@
 import { User } from '../models/User.js'
 
 import { carritosDao } from '../persistence/daos/index.js'
+import { ordersDao } from '../persistence/daos/index.js'
 
 const serviceCart = async (userId) => {
     const carts = await carritosDao.list()
@@ -17,9 +18,18 @@ const serviceCartBuy = async (userId) => {
 
     const cart = carts.find(el => el.userId == userId)
 
-    const deleteCart = await carritosDao.deleteAll()
+    const data = {
+        username: userData.username,
+        email: cart.email,
+        id: cart.id,
+        products: cart.productos,
+        date: new Date()
+    }
 
-    return { cart, userData, deleteCart }
+    await ordersDao.save(data)
+    await carritosDao.deleteAll()
+
+    return { data }
 }
 
 export { serviceCart, serviceCartBuy }

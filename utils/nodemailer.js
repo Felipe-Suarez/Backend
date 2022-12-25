@@ -44,12 +44,12 @@ const sendMail = async (data) => {
 const newPurchase = async (data) => {
 
     const user = data.username;
-    const mail = data.mail;
-    const products = data.products;
+    const mail = data.email;
     const cartId = data.id;
+    const products = data.products;
     const productosArr = products.map(product => {
         return (
-            `<li>Producto: ${product.title}, Precio: ${product.price}. x${product.qty}</li>`
+            `<li>Producto: ${product.title} | Precio: $${product.price} | x${product.qty}</li>`
         )
     });
 
@@ -62,7 +62,7 @@ const newPurchase = async (data) => {
               <h2>Nombre: ${user}</h2>
               <h3>Email: ${mail}</h3>
               <h4>Numero de orden: ${cartId}</h4>
-              <h5>Fecha: ${new Date()}</h5>
+              <h5>Fecha: ${data.date}</h5>
               <ul>Productos: ${productosArr.join(' ')}</ul>      
               `,
     };

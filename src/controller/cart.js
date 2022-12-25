@@ -24,20 +24,10 @@ route.get('/', async (req, res) => {
 })
 
 route.get('/buy', async (req, res) => {
-    const { cart, userData, deleteCart } = await serviceCartBuy(req.user?._id)
+    const { data } = await serviceCartBuy(req.user?._id)
 
-    const data = {
-        username: userData.username,
-        mail: userData.email,
-        products: cart.productos,
-        id: cart.id
-    }
-
-    console.log(data)
     await newPurchase(data)
     // await sendMsg(userData.phone)
-
-    await deleteCart
 })
 
 export default route

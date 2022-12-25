@@ -1,4 +1,4 @@
-import { SingletonCart, SingletonProduct, SingletonChat } from "./Singleton.js";
+import { SingletonCart, SingletonProduct, SingletonChat, SingletonOrder } from "./Singleton.js";
 
 import { PERS } from "../../../config/index.js";
 
@@ -10,5 +10,6 @@ else useDB = PERS
 const productosDao = SingletonProduct.singletonDao().create(useDB)
 const carritosDao = SingletonCart.singletonDao().create(useDB)
 const chatDao = SingletonChat.singletonDao().create(useDB)
+const ordersDao = SingletonOrder.singletonDao().create(useDB)
 
-export { productosDao, carritosDao, chatDao, useDB };
+export { productosDao, carritosDao, chatDao, ordersDao, useDB };
