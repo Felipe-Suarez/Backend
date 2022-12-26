@@ -1,59 +1,28 @@
-.product {
+.product-box-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  text-align: left;
-  margin: 20px 0;
+  flex-direction: column;
 }
 
 .product-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  flex-grow: 1;
-  gap: 10px;
-  width: 200px;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
+  width: 300px;
   border: 2px solid #000;
-}
-
-.product-box-fragment {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 10px;
-}
-
-.product-box-title {
-  width: 100%;
-}
-
-.product-box-price {
-  width: 100%;
-  font-size: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
 }
 
 .product-box-img {
   width: 100%;
 }
 
-.box-title {
-  order: 1;
+.product-box-description {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
-.box-img {
-  order: 2;
+.product-box-price {
+  font-size: 20px;
 }
-
-.box-detail {
-  order: 3;
-}
-
-/* BTN */
 
 .product-btn {
   padding: 15px 25px;
@@ -71,6 +40,8 @@
   transition: all 250ms;
   overflow: hidden;
   cursor: pointer;
+  width: 250px;
+  margin: 0 auto;
 }
 
 .product-icon {
@@ -101,53 +72,38 @@
   width: 100%;
 }
 
-/* MEDIAQUERYS */
+.box-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-@media screen and (min-width: 528px) {
-  .box-title {
-    order: 2;
-    height: 400px;
-    justify-content: unset;
-    border: none;
-    padding: unset;
+@media screen and (min-width: 750px) {
+  .product-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
   }
 
-  .product-box-fragment {
-    position: sticky;
-    top: 10px;
-    border: 2px solid #000;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
+  .box-title {
+    order: 2;
+    margin: 0 0 0 20px;
+    width: 40%;
+    flex-grow: 1;
+    height: 200px;
   }
 
   .box-img {
     order: 1;
-    width: unset;
-    height: 400px;
-  }
-
-  .product-box-img {
-    height: 100%;
-    width: unset;
+    width: 40%;
+    margin: 0;
   }
 
   .box-detail {
-    order: 3;
-  }
-}
-
-@media screen and (min-width: 792px) {
-  .box-title {
-    margin-right: 10%;
-  }
-
-  .box-img {
-    margin-left: 10%;
-  }
-
-  .box-detail {
-    width: 100%;
-    margin: 0 10%;
+    box-sizing: border-box;
+    width: 80%;
   }
 }

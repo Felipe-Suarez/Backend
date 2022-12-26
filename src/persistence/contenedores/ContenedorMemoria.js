@@ -6,7 +6,7 @@ class ContenedorMemoria {
     getById(id) {
         const obj = this.memoria.find(item => item.id == id)
         if (!obj) {
-            throw new Error('Error')
+            return { error: 'El producto no existe' }
         } else {
             return obj
         }

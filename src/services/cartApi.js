@@ -17,7 +17,7 @@ const serviceAddCartProducts = async (productID, cartID) => {
     const producto = await productosDao.getById(productID)
     const carrito = await carritosDao.getById(cartID)
 
-    const isInCart = () => carrito.productos.find(product => product.id === Number(productID))
+    const isInCart = () => carrito.productos.find(product => product.id == productID)
 
     let productInCart = isInCart()
 

@@ -8,7 +8,8 @@ class ContenedorArchivo {
     async getById(id) {
         const objs = await this.list()
         const obj = await objs.find(item => item.id === parseInt(id))
-        return obj
+        if (obj) return obj
+        else { return { error: 'El producto no existe' } }
     }
 
     async list() {

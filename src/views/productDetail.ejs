@@ -27,24 +27,24 @@
   <body>
     <%- include('partials/header.ejs'); %>
     <main>
-      <div class="product">
-        <div class="product-box box-title" name="<%= productInfo.id %>">
-          <div class="product-box-fragment">
+      <div class="product" name="<%= productInfo.id %>">
+        <div class="product-container">
+          <div class="product-box box-title">
             <h2 class="product-box-title"><%= productInfo.title %></h2>
             <span class="product-box-price">$ <%= productInfo.price %></span>
             <button class="product-btn">
               Agregar al carrito <i class="bx bxs-cart-add bx-sm product-icon"></i>
             </button>
           </div>
-        </div>
 
-        <div class="product-box box-img">
-          <img class="product-box-img" src="<%= productInfo.thumbnail %>" />
+          <div class="product-box box-img">
+            <img class="product-box-img" src="<%= productInfo.thumbnail %>" />
+          </div>
         </div>
 
         <div class="product-box box-detail">
           <h2 class="product-box-title">Descripcion:</h2>
-          <p><%= productInfo.detail %></p>
+          <pre class="product-box-description"><%= productInfo.detail %></pre>
         </div>
       </div>
     </main>

@@ -1,4 +1,5 @@
 const productBtn = document.querySelector('.product-btn')
+const product = document.querySelector('.product')
 
 let cartId;
 
@@ -6,7 +7,7 @@ let cartId;
 fetch('/userInfo/data').then(res => res.json()).then(data => cartId = data.id)
 
 productBtn.addEventListener('click', () => {
-    const productId = productBtn.parentElement.parentElement.attributes.name.nodeValue
+    const productId = product.attributes.name.nodeValue
 
     if (cartId) {
         fetch(`/api/cart/${cartId}/productos`, {
