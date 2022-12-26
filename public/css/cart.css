@@ -113,10 +113,6 @@
 }
 
 .cart-buy {
-  width: 150px;
-}
-
-.cart-buy {
   --bg: #000;
   --hover-bg: #5264ae;
   --hover-text: #fff;
@@ -126,6 +122,8 @@
   padding: 0.8em 2em;
   background: var(--bg);
   transition: 0.2s;
+  width: 150px;
+  cursor: pointer;
 }
 
 .cart-buy:hover {

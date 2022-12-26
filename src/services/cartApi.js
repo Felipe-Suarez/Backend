@@ -39,7 +39,7 @@ const serviceAddCartProducts = async (productID, cartID) => {
 
 const serviceUpdateCartProduct = async (cartID, bodyProduct) => {
     const carrito = await carritosDao.getById(cartID)
-    const producto = carrito.productos.find(product => product.id === Number(bodyProduct.id))
+    const producto = carrito.productos.find(product => product.id == bodyProduct.id)
 
     if (bodyProduct.qty >= 1 && bodyProduct.qty <= 10) {
         producto.qty = bodyProduct.qty

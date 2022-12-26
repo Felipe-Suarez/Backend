@@ -1,18 +1,147 @@
 [
   {
     "username": "felipe",
+    "email": "felipe@mail",
     "id": 1,
     "products": [
       {
-        "title": "3",
-        "price": "3",
-        "thumbnail": "2",
-        "category": "termos",
-        "detail": "3",
-        "id": 1,
-        "qty": "3"
+        "title": "Mate de acero blanco + bombilla",
+        "price": "5500",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_962921-MLA49151423518_022022-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 2,
+        "qty": 1
       }
     ],
-    "date": "2022-12-25T20:01:38.460Z"
+    "date": "2022-12-26T18:14:30.894Z"
+  },
+  {
+    "username": "felipe",
+    "email": "felipe@mail",
+    "id": 2,
+    "products": [
+      {
+        "title": "Bombilla chata",
+        "price": "500",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_603246-MLA41851485193_052020-W.webp",
+        "category": "bombillas",
+        "detail": "descripcion",
+        "id": 8,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:15:17.103Z"
+  },
+  {
+    "username": "pepe",
+    "email": "pepe@mail",
+    "id": 3,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:21:52.315Z"
+  },
+  {
+    "username": "pepe",
+    "email": "pepe@mail",
+    "id": 4,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:22:54.915Z"
+  },
+  {
+    "username": "pepe",
+    "email": "pepe@mail",
+    "id": 5,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:25:16.180Z"
+  },
+  {
+    "username": "pepe",
+    "email": "pepe@mail",
+    "id": 6,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      },
+      {
+        "title": "Mate de acero blanco + bombilla",
+        "price": "5500",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_962921-MLA49151423518_022022-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 2,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:26:13.402Z"
+  },
+  {
+    "username": "felipe",
+    "email": "felipe@mail",
+    "id": 7,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T18:28:30.420Z"
+  },
+  {
+    "username": "felipe",
+    "email": "felipe@mail",
+    "id": 8,
+    "products": [
+      {
+        "title": "Mate de acero negro + bombilla",
+        "price": "4999",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+        "category": "mates",
+        "detail": "descripcion",
+        "id": 1,
+        "qty": 1
+      }
+    ],
+    "date": "2022-12-26T20:21:02.064Z"
   }
 ]

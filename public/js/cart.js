@@ -29,8 +29,6 @@ const updatePrice = () => {
     updatePrice()
 })()
 
-// totalPrice.textContent = ''
-
 productContainer.addEventListener('click', async (e) => {
     productBtn.forEach((btn, index) => {
         //BORRAR PRODUCTO
@@ -84,7 +82,9 @@ productContainer.addEventListener('click', async (e) => {
 const cartBuy = document.querySelector('.cart-buy')
 
 cartBuy?.addEventListener('click', () => {
-    fetch('/cart/buy')
-        .then(alert('Compra realizada exitosamente!'))
-        .then(window.location.href = "/")
+    fetch('/cart/buy', {
+        method: 'post'
+    }).then(alert('Compra realizada exitosamente!')).then(data => {
+        if (data) window.location.href = '/cart'
+    })
 })

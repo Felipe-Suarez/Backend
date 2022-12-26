@@ -24,7 +24,7 @@ const getUser = async () => {
 
 async function renderChat(data) {
     let chatHTML = `<div class='chat-info-msg'>
-                      <span>El chat se encuentra vacio en este momento<span/>
+                      <span>No has enviado ningun mensaje aun<span/>
                   <div/>`;
     if (data.length > 0) {
         const userInfo = await getUser()

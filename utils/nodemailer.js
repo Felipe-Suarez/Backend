@@ -15,7 +15,6 @@ const transporter = createTransport({
 
 //WHEN USER IS REGISTER
 const sendMail = async (data) => {
-    console.log(data)
     const emailContent = {
         from: 'Mi primer Email',
         to: MAIL,

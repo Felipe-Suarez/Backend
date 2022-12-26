@@ -5,8 +5,6 @@ import { auth, isAdmin } from '../middleware/auth.js'
 
 import sendMsg from '../middleware/twilio.js'
 
-import { newPurchase } from '../../utils/nodemailer.js'
-
 import { serviceCart, serviceCartBuy } from '../services/cart.js'
 
 route.use(auth)
@@ -23,11 +21,12 @@ route.get('/', async (req, res) => {
     })
 })
 
-route.get('/buy', async (req, res) => {
-    const { data } = await serviceCartBuy(req.user?._id)
+route.post('/buy', async (req, res) => {
+    await serviceCartBuy(req.user?._id)
 
-    await newPurchase(data)
     // await sendMsg(userData.phone)
+
+    res.json('successful purchase')
 })
 
 export default route

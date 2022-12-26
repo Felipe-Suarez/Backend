@@ -1,10 +1,114 @@
 [
   {
-    "title": "3",
-    "price": "3",
-    "thumbnail": "3",
-    "category": "termos",
-    "detail": "3",
+    "title": "Mate de acero negro + bombilla",
+    "price": "4999",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_733159-MLA48550789161_122021-W.webp",
+    "category": "mates",
+    "detail": "descripcion",
     "id": 1
+  },
+  {
+    "title": "Mate de acero blanco + bombilla",
+    "price": "5500",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_962921-MLA49151423518_022022-W.webp",
+    "category": "mates",
+    "detail": "descripcion",
+    "id": 2
+  },
+  {
+    "title": "Mate de acero rosa",
+    "price": "5999",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_662115-MLA49151357393_022022-W.webp",
+    "category": "mates",
+    "detail": "descripcion",
+    "id": 3
+  },
+  {
+    "title": "Mate de acero verde",
+    "price": "6500",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_954611-MLA46825959890_072021-W.webp",
+    "category": "mates",
+    "detail": "descripcion",
+    "id": 4
+  },
+  {
+    "title": "Termo verde oscuro",
+    "price": "20000",
+    "thumbnail": "https://ss-static-01.esmsv.com/id/109228/productos/obtenerimagen/?id=3512&useDensity=false&width=1280&height=720&tipoEscala=contain",
+    "category": "termos",
+    "detail": "descripcion",
+    "id": 5
+  },
+  {
+    "title": "Mate de acero rojo",
+    "price": "24999",
+    "thumbnail": "https://ss-static-01.esmsv.com/id/109228/productos/obtenerimagen/?id=2681&useDensity=false&width=1280&height=720&tipoEscala=contain",
+    "category": "termos",
+    "detail": "descripcion",
+    "id": 6
+  },
+  {
+    "title": "Mate de acero blanco",
+    "price": "22499",
+    "thumbnail": "https://ss-static-01.esmsv.com/id/109228/productos/obtenerimagen/?id=1969&useDensity=false&width=1280&height=720&tipoEscala=contain",
+    "category": "termos",
+    "detail": "descripcion",
+    "id": 7
+  },
+  {
+    "title": "Bombilla chata",
+    "price": "500",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_603246-MLA41851485193_052020-W.webp",
+    "category": "bombillas",
+    "detail": "descripcion",
+    "id": 8
+  },
+  {
+    "title": "Bombilla de pico de loro",
+    "price": "1199",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_927011-MLA41850319636_052020-W.webp",
+    "category": "bombillas",
+    "detail": "descripcion",
+    "id": 9
+  },
+  {
+    "title": "Bombillas de aluminio de colores",
+    "price": "999",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_625943-MLA42297439976_062020-W.webp",
+    "category": "bombillas",
+    "detail": "descripcion",
+    "id": 10
+  },
+  {
+    "title": "Amanda suave",
+    "price": "399",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/043/230/products/yerba_suave_500_31-2e3ab3200d3b82720016171148904758-320-0.webp",
+    "category": "yerbas",
+    "detail": "descripcion",
+    "id": 11
+  },
+  {
+    "title": "Amanda premium",
+    "price": "550",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/043/230/products/yerba_premium_3_c1-bc9a636eb1dfa6423d16109957594957-320-0.webp",
+    "category": "yerbas",
+    "detail": "descripcion",
+    "id": 12
+  },
+  {
+    "title": "Yerba mate origen",
+    "price": "500",
+    "thumbnail": "https://yerbamateorigen.com.ar/wp-content/uploads/2022/05/paquete-origen-3_4.jpg",
+    "category": "yerbas",
+    "detail": "descripcion",
+    "id": 13
+  },
+  {
+    "title": "Mochila termica negra",
+    "price": "25000",
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/805/025/products/frente1-e79202bafe101883ee16304361420718-1024-1024.webp",
+    "category": "materas",
+    "detail": "descripcion",
+    "id": 14
   }
 ]

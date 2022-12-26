@@ -9,8 +9,6 @@ route.get('/:id', async (req, res) => {
     const productId = req.params.id
     const product = await serviceGetProduct(productId)
 
-    console.log(product.detail)
-
     if (product.error) {
         res.render('error', { msg: product.error })
     } else {
