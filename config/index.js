@@ -25,9 +25,9 @@ const JWT = process.env.JWT
 const MAIL = process.env.MAIL
 const PASS_MAIL = process.env.PASS_MAIL
 
-const TWILIO_SID = process.env.TWILIO_SID
-const TWILIO_TOKEN = process.env.TWILIO_TOKEN
-const TWILIO_NUMBER = process.env.TWILIO_NUMBER
+// const TWILIO_SID = process.env.TWILIO_SID
+// const TWILIO_TOKEN = process.env.TWILIO_TOKEN
+// const TWILIO_NUMBER = process.env.TWILIO_NUMBER
 
 const CATEGORY_NAMES = process.env.CATEGORY_NAMES
 
@@ -42,8 +42,8 @@ export {
     JWT,
     MAIL,
     PASS_MAIL,
-    TWILIO_SID,
-    TWILIO_TOKEN,
-    TWILIO_NUMBER,
+    // TWILIO_SID,
+    // TWILIO_TOKEN,
+    // TWILIO_NUMBER,
     CATEGORY_NAMES
 }
