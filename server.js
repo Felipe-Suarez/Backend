@@ -116,9 +116,9 @@ io.on('connection', async function (socket) {
     });
 })
 
-let usePort;
-if (NODE_ENV === 'prod') usePort = PORT
-else usePort = 8080
+let usePort = process.env.PORT || 8080
+// if (NODE_ENV === 'prod') usePort = PORT
+// else usePort = 8080
 
 //listen
 httpServer.listen(usePort, () => logger.info(`Escuchando al puerto ${usePort}. Utilizando ${useDB}`))
