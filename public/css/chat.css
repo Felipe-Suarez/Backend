@@ -29,6 +29,8 @@
   padding: 20px 0;
   margin: 0;
   font-size: 30px;
+  background-color: var(--color-dark-primary);
+  color: var(--color-white);
 }
 
 .chat-close-icon {
@@ -47,6 +49,11 @@
   cursor: pointer;
 }
 
+.chat-close-icon i,
+.chat-expand-icon i {
+  color: var(--color-white);
+}
+
 .chat {
   flex-grow: 2;
   overflow-y: auto;
@@ -58,14 +65,27 @@
   border-top: 1px solid #000;
   padding: 20px 0;
   text-align: center;
+  background-color: var(--color-dark-primary);
 }
 
 .chat-input {
   width: 70%;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.chat-input:focus {
+  outline: none;
 }
 
 .chat-input-send {
   cursor: pointer;
+  color: var(--color-accent);
+  background-color: var(--color-white);
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: 600;
 }
 
 .chat-icon {
@@ -73,13 +93,17 @@
   bottom: 10px;
   right: 10px;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid var(--color-grey);
   padding: 5px;
   border-radius: 50%;
-  box-shadow: 0 5px 5px #000a;
+  box-shadow: 0 5px 5px #0005;
   transition: transform 0.2s;
   cursor: pointer;
   z-index: 300;
+}
+
+.chat-icon i {
+  color: var(--color-grey);
 }
 
 .msg-container {

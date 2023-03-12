@@ -66,6 +66,8 @@
   border: 1px solid #000;
   position: relative;
   margin-right: 30px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .product-qty {
@@ -94,8 +96,9 @@
 }
 
 .product-btn {
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
 }
 
 /* BUY INFO */
@@ -103,18 +106,18 @@
 .cart-buy-container {
   position: absolute;
   bottom: 0;
-  border-top: 2px solid #000;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 25%;
   padding: 10px 0;
+  background-color: var(--color-light-primary);
 }
 
 .cart-buy {
-  --bg: #000;
-  --hover-bg: #5264ae;
+  --bg: var(--color-primary);
+  --hover-bg: var(--color-accent);
   --hover-text: #fff;
   color: #fff;
   border: 1px solid var(--bg);

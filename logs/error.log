@@ -17,3 +17,5 @@
 [21/12/2022 - (18:05:13)]/(Level: [31merror[39m): null
 [21/12/2022 - (18:10:57)]/(Level: [31merror[39m): null
 [21/12/2022 - (18:23:03)]/(Level: [31merror[39m): null
+[12/3/2023 - (19:08:23)]/(Level: [31merror[39m): error de nodemailer Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials n1-20020a4aa7c1000000b004fd878ef510sm2439773oom.21 - gsmtp

@@ -1,7 +1,7 @@
 .card {
   width: 300px;
   height: 400px;
-  background: #07182e;
+  background: var(--color-black);
   position: relative;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
   content: "";
   position: absolute;
   width: 100px;
-  background-image: linear-gradient(180deg, #1937b1, #5264ae);
+  background-image: linear-gradient(180deg, var(--color-primary), var(--color-accent));
   height: 130%;
   animation: rotBGimg 3s linear infinite;
   transition: all 0.2s linear;
@@ -43,7 +43,7 @@
 .card::after {
   content: "";
   position: absolute;
-  background: #07182e;
+  background: var(--color-black);
   inset: 5px;
   border-radius: 15px;
 }
@@ -55,8 +55,8 @@
   width: 150px;
   height: 150px;
   background-color: #fafafa;
-  box-shadow: inset 0 0 10px #000a;
   position: relative;
+  background-color: var(--color-primary);
 }
 
 .card-img-box:hover::after {
@@ -78,7 +78,7 @@
 
 .edit-img {
   display: none;
-  color: #5264ae;
+  color: var(--color-accent);
   position: absolute;
   top: 30px;
   left: 25px;

@@ -11,6 +11,7 @@
 }
 
 .config-list {
+  box-sizing: border-box;
   border: 2px solid #000;
   border-radius: 50%;
   width: 350px;
@@ -19,12 +20,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0;
+  padding: 20px;
   gap: 20px;
+  background-color: var(--color-light-primary);
 }
 
 .config-item {
-  margin-left: 20%;
+  margin-left: 10%;
   width: 80%;
   font-size: 20px;
   text-align: left;

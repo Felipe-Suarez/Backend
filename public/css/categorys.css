@@ -19,6 +19,13 @@
   border-left: 1px solid #000;
   display: block;
   padding: 10px 0;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.category-link:visited,
+.category-link:link {
+  color: var(--color-white);
 }
 
 .main-link {
@@ -51,7 +58,7 @@
 
 .product-description {
   margin: 0 auto 10px auto;
-  color: #000a;
+  color: var(--color-grey);
   cursor: pointer;
   display: inline-block;
 }
@@ -79,6 +86,7 @@
     width: unset;
     text-align: unset;
     padding: 10px 50px;
+    border: unset;
   }
 
   .category-link-first {

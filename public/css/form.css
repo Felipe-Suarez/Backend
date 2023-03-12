@@ -88,7 +88,7 @@
 .form-input:valid ~ .form-label {
   top: -20px;
   font-size: 14px;
-  color: #5264ae;
+  color: var(--color-accent);
 }
 
 .bar {
@@ -104,7 +104,7 @@
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264ae;
+  background: var(--color-accent);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -139,7 +139,7 @@
 
 @keyframes inputHighlighter {
   from {
-    background: #5264ae;
+    background: var(--color-accent);
   }
 
   to {
@@ -167,8 +167,8 @@
 }
 
 .form-btn:hover {
-  background-color: #1937b1;
-  box-shadow: 0px 15px 20px #5264ae;
+  background-color: var(--color-primary);
+  box-shadow: 0px 15px 20px var(--color-accent);
   color: #fff;
   transform: translateY(-7px);
 }

@@ -22,7 +22,7 @@ phoneInputField.addEventListener('keyup', () => {
     //REGEX
     const newPhoneNumber = phoneNumber.slice(1)
     if (regex.phone.test(newPhoneNumber) || phoneNumber === '') {
-        labelPhone.style = 'color: #5264ae'
+        labelPhone.style = 'color: var(--color-accent)'
     } else {
         labelPhone.style = 'color: #f00'
     }
@@ -45,7 +45,7 @@ const labelName = document.querySelector("#label-name");
 inputName.addEventListener('keyup', () => {
     //REGEX
     if (regex.name.test(inputName.value) || inputName.value === '') {
-        labelName.style = 'color: #5264ae'
+        labelName.style = 'color: var(--color-accent)'
     } else {
         labelName.style = 'color: #f00'
     }

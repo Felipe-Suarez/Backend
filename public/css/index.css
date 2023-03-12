@@ -1,7 +1,6 @@
 .header {
   height: 15vh;
   box-sizing: border-box;
-  border-bottom: 2px solid #000;
   position: relative;
   z-index: 200;
 }
@@ -14,10 +13,10 @@
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: #fff;
   position: relative;
   z-index: 150;
   pointer-events: none;
+  background-color: var(--color-dark-primary);
 }
 
 .header-cart-icon {
@@ -31,6 +30,12 @@
   height: 50px;
   border-radius: 50%;
   pointer-events: all;
+  color: var(--color-white);
+}
+
+.header-cart-icon:visited,
+.header-cart-icon:link {
+  color: var(--color-white);
 }
 
 .header-cart-icon:hover {
@@ -40,13 +45,22 @@
 .nav-title {
   margin-left: 20px;
   pointer-events: all;
+  color: var(--color-white);
+}
+
+.nav-title-span {
+  font-weight: 200;
 }
 
 .nav-img-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   margin-right: 30px;
   pointer-events: all;
+  background-color: var(--color-white);
+  border-radius: 30px;
+  padding: 5px;
+  align-items: center;
 }
 
 .nav-icon {
@@ -58,6 +72,10 @@
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.nav-icon {
+  color: var(--color-grey);
 }
 
 .nav-icon:hover {
@@ -75,10 +93,10 @@
 .nav-img-box {
   border-radius: 50%;
   overflow: hidden;
-  width: 50px;
-  height: 50px;
-  box-shadow: inset 0 0 10px #000a;
-  border: 2px solid #000;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
   position: relative;
   cursor: pointer;
 }
@@ -95,8 +113,8 @@
 }
 
 .nav-img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 
@@ -106,7 +124,7 @@
 
 .nav-list {
   position: absolute;
-  background-color: #000;
+  background-color: var(--color-white);
   border-bottom-left-radius: 10px;
   right: 0;
   min-width: 170px;
@@ -115,6 +133,8 @@
   padding: 10px 5px 10px 30px;
   transform: translateY(-105%);
   transition: all 0.3s;
+  box-shadow: 0 0 5px #000;
+  font-weight: 500;
 }
 
 .nav-list-open {
@@ -123,11 +143,32 @@
 
 .nav-list-item {
   margin: 10px 0;
-  color: #fff;
+  color: var(--color-black);
 }
 
 .nav-list-item a {
   text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.nav-list-item a i {
+  color: var(--color-grey);
+  font-size: 25px;
+}
+
+.main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("/imgs/mateBG.jpg");
+  background-size: 200vw 80vh;
+  background-position: -100px 100px;
+  background-repeat: no-repeat;
 }
 
 .main-title {
@@ -139,24 +180,36 @@
 }
 
 .main-home-link {
-  border: 1px solid #000;
+  box-sizing: border-box;
   display: block;
-  padding: 10px 20px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
   border-radius: 10px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.main-home-link:visited,
+.main-home-link:link {
+  color: var(--color-white);
 }
 
 .admin-icon {
   position: absolute;
   display: grid;
   place-content: center;
-  right: 0;
-  bottom: 0;
+  right: 170px;
   z-index: 100;
   cursor: pointer;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   pointer-events: all;
+}
+
+.admin-icon i {
+  color: var(--color-white);
 }
 
 .admin-icon:hover {
@@ -166,14 +219,35 @@
 /* FOOTER */
 
 .footer {
-  background-color: #000;
+  background-color: var(--color-dark-primary);
   width: 100%;
   height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.footer span {
+  height: 3vh;
+  margin-top: 5vh;
+  width: 80%;
+  border-top: 1px solid var(--color-black);
+  text-align: center;
 }
 
 @media screen and (min-width: 500px) {
   .admin-icon {
     bottom: unset;
-    right: 170px;
+    right: 190px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main-img {
+    background-size: 120vw 120vh;
+    background-position: -100px 100px;
+    background-repeat: no-repeat;
+  }
+
+  .header-cart-icon {
+    right: 150px;
   }
 }

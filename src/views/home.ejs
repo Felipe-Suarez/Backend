@@ -30,6 +30,9 @@
   <body>
     <%- include('partials/header.ejs'); %>
     <main>
+      <% if (productsInfo.length > 0) { %>
+      <div class="main-img"></div>
+      <% } %>
       <ul class="category-list">
         <li><a class="category-link category-link-first" href="/categoria/mates">MATES</a></li>
         <li><a class="category-link" href="/categoria/termos">TERMOS</a></li>
